@@ -1,0 +1,2644 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>花学習アプリ</title>
+  <style>
+:root {
+  --bg-1: #f2f6ef;
+  --bg-2: #f8f2ea;
+  --surface: #fffeff;
+  --surface-soft: #f7f8fb;
+  --ink: #1f2a2e;
+  --muted: #5f6d77;
+  --line: #d9e1e6;
+  --primary: #2f8f64;
+  --primary-strong: #23704d;
+  --danger-bg: #fde8e8;
+  --danger-line: #e08a8a;
+  --danger-ink: #8a1f1f;
+  --ok-bg: #dff5e1;
+  --ok-line: #7ac487;
+  --ok-ink: #1f6b2a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "BIZ UDPGothic", "Yu Gothic UI", "Hiragino Sans", "Meiryo", sans-serif;
+  background:
+    radial-gradient(circle at 12% 12%, #e7f3dc 0%, rgba(231, 243, 220, 0) 34%),
+    radial-gradient(circle at 88% 18%, #fbe8d6 0%, rgba(251, 232, 214, 0) 35%),
+    linear-gradient(145deg, var(--bg-1), var(--bg-2));
+  color: var(--ink);
+  margin: 0;
+  padding: 40px 16px 28px;
+}
+
+.screen {
+  display: none;
+  max-width: 470px;
+  margin: 20px auto;
+  background: var(--surface);
+  padding: 22px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow:
+    0 20px 50px rgba(31, 42, 46, 0.1),
+    0 2px 10px rgba(31, 42, 46, 0.06);
+  text-align: center;
+  animation: screen-pop 260ms ease-out;
+}
+
+@keyframes screen-pop {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1, h2 {
+  margin: 8px 0 14px;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+}
+
+h1 {
+  font-size: 42px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+button {
+  width: 100%;
+  padding: 13px 16px;
+  margin: 8px 0;
+  font-size: 16px;
+  cursor: pointer;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  background: linear-gradient(180deg, #ffffff, #f9fbfd);
+  border-radius: 12px;
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  border-color: #c5d1d9;
+  box-shadow: 0 8px 16px rgba(31, 42, 46, 0.08);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button:disabled {
+  opacity: 0.62;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px 14px;
+  margin: 8px 0;
+  font-size: 16px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--ink);
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #7ab496;
+  box-shadow: 0 0 0 3px rgba(47, 143, 100, 0.16);
+}
+
+#quizImage {
+  width: 100%;
+  max-width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+  margin: 0 auto 12px;
+  border: 1px solid #e3e7ec;
+  box-shadow: 0 8px 20px rgba(31, 42, 46, 0.12);
+}
+
+.choice-btn {
+  width: 100%;
+  padding: 14px 16px;
+  margin: 8px 0;
+  font-size: 16px;
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 12px;
+}
+
+.choice-btn.correct {
+  background-color: var(--ok-bg);
+  border-color: var(--ok-line);
+  color: var(--ok-ink);
+}
+
+.choice-btn.wrong {
+  background-color: var(--danger-bg);
+  border-color: var(--danger-line);
+  color: var(--danger-ink);
+}
+
+.home-hero {
+  margin-bottom: 12px;
+}
+
+.home-layout {
+  display: block;
+}
+
+.home-left-column,
+.home-right-column {
+  min-width: 0;
+}
+
+.home-hero-block,
+.home-learn-block,
+.home-stats-block,
+.home-lookup-block,
+.home-reserve-block {
+  min-width: 0;
+}
+
+.home-learn-block {
+  margin-top: 2px;
+}
+
+.home-stats-block {
+  margin-top: 10px;
+}
+
+.home-lookup-block {
+  margin-top: 4px;
+}
+
+.home-reserve-block {
+  display: none;
+}
+
+.home-reserve-box {
+  min-height: 100%;
+  border: 1px dashed #cfd8df;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #f9fbfd, #f5f8fb);
+  padding: 14px;
+  color: #6a7781;
+  text-align: left;
+}
+
+.home-reserve-title {
+  margin: 0 0 6px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.home-reserve-note {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.home-kicker {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  color: #6a7f74;
+}
+
+.home-flow-hint {
+  margin: 8px 0 10px;
+  padding: 10px 12px;
+  text-align: left;
+  border: 1px solid #d5e3da;
+  border-radius: 11px;
+  background: #f2fbf6;
+  color: #2a5b45;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.btn-primary {
+  border: none;
+  color: #f6fffa;
+  text-align: left;
+  background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+  box-shadow: 0 10px 22px rgba(35, 112, 77, 0.26);
+}
+
+.btn-primary:hover {
+  border: none;
+  box-shadow: 0 14px 24px rgba(35, 112, 77, 0.3);
+}
+
+.menu-label {
+  margin: 14px 2px 4px;
+  text-align: left;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+}
+
+.menu-btn {
+  text-align: left;
+}
+
+.btn-main {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.btn-sub {
+  display: block;
+  margin-top: 3px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.btn-primary .btn-sub {
+  color: rgba(247, 255, 250, 0.84);
+}
+
+.stats-card {
+  margin: 10px 0 14px;
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #dbe3ea;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #f9fbfd, #f5f8fb);
+}
+
+.stats-card p {
+  margin: 5px 0;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.status-banner {
+  display: none;
+  margin: 8px 0 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #e2bf79;
+  background: #fff7e8;
+  color: #8a5a10;
+  text-align: left;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.quiz-hint {
+  min-height: 24px;
+  margin: 8px 0 12px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid #d8dce2;
+  background: #f7f9fc;
+  color: #4a5568;
+  font-size: 13px;
+  text-align: left;
+}
+
+.quiz-hint.warn {
+  border-color: #e0b15e;
+  background: #fff8e8;
+  color: #8a5a10;
+}
+
+.quiz-hint.ok {
+  border-color: #9fc8f5;
+  background: #eef6ff;
+  color: #24558a;
+}
+
+.mode-context {
+  margin: 2px 0 14px;
+  padding: 8px 10px;
+  text-align: left;
+  border: 1px dashed #cdd7df;
+  border-radius: 10px;
+  background: var(--surface-soft);
+  color: #3f4f5c;
+  font-size: 13px;
+}
+
+#encyclopediaScreen {
+  text-align: left;
+}
+
+#encyclopediaScreen h2 {
+  text-align: center;
+}
+
+.ency-filter-wrap {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.ency-filter-control {
+  width: 100%;
+}
+
+.birthday-filter-card {
+  border: 1px solid #e8edf1;
+  border-radius: 12px;
+  background: #fcfdff;
+  padding: 4px 8px;
+}
+
+.birthday-wheel-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.birthday-wheel-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 58px;
+}
+
+.birthday-wheel-label {
+  display: none;
+}
+
+.ios-wheel-shell {
+  position: relative;
+  width: 58px;
+}
+
+.ios-wheel-shell::before,
+.ios-wheel-shell::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 12px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.ios-wheel-shell::before {
+  top: 0;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+  background: linear-gradient(180deg, rgba(252, 253, 255, 0.82), rgba(252, 253, 255, 0));
+}
+
+.ios-wheel-shell::after {
+  bottom: 0;
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+  background: linear-gradient(0deg, rgba(252, 253, 255, 0.82), rgba(252, 253, 255, 0));
+}
+
+.ios-wheel {
+  position: relative;
+  height: 44px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: y mandatory;
+  overscroll-behavior: contain;
+  border: 1px solid #e6ebf0;
+  border-radius: 10px;
+  background: #fff;
+  padding: 8px 0;
+}
+
+.ios-wheel::-webkit-scrollbar {
+  display: none;
+}
+
+.ios-wheel-focus {
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 28px;
+  border-top: 1px solid #e6ebf0;
+  border-bottom: 1px solid #e6ebf0;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.42);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ios-wheel-item {
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: #8a959f;
+  user-select: none;
+  cursor: pointer;
+}
+
+.ios-wheel-item.active {
+  color: #2f3c45;
+  font-size: 14px;
+}
+
+.birthday-value {
+  display: none;
+}
+
+#flowerList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.flower-card {
+  border: 1px solid #dbe3ea;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #ffffff, #f8fbfd);
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(31, 42, 46, 0.06);
+}
+
+.flower-card h3 {
+  margin: 0 0 8px;
+  font-size: 19px;
+}
+
+.flower-card-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #e3e7ec;
+  margin-bottom: 8px;
+}
+
+.flower-meta {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #3a4a56;
+}
+
+.flower-empty {
+  font-weight: 700;
+  margin-top: 20px;
+  text-align: center;
+}
+
+@media (min-width: 600px) and (max-width: 979px) and (orientation: portrait) {
+  body {
+    padding: 20px 14px 18px;
+  }
+
+  #homeScreen {
+    width: min(900px, calc(100vw - 18px));
+    max-width: none;
+    margin: 8px auto;
+    min-height: 0;
+    padding: 22px;
+  }
+
+  #homeScreen .home-layout {
+    min-height: 0;
+  }
+
+  #homeScreen .home-learn-block {
+    margin-top: 14px;
+  }
+
+  #homeScreen .home-lookup-block {
+    margin-top: 18px;
+  }
+
+  #homeScreen .home-right-column {
+    margin-top: 14px;
+  }
+
+  #homeScreen .home-reserve-block {
+    display: none;
+  }
+
+  #encyclopediaScreen {
+    width: min(930px, calc(100vw - 18px));
+    max-width: none;
+    margin: 8px auto;
+    padding: 20px;
+  }
+
+  #encyclopediaScreen #flowerList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  #quizImage {
+    max-width: 300px;
+    height: 300px;
+  }
+}
+
+@media (min-width: 980px) {
+  body {
+    padding: 24px 10px 20px;
+  }
+
+  #homeScreen {
+    width: min(1480px, calc(100vw - 20px));
+    max-width: none;
+    margin: 10px auto;
+    min-height: calc(100vh - 44px);
+    text-align: left;
+    padding: 28px;
+  }
+
+  #homeScreen .home-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.62fr) minmax(360px, 1fr);
+    column-gap: 24px;
+    align-items: start;
+    min-height: calc(100vh - 132px);
+  }
+
+  #homeScreen .home-left-column {
+    padding-right: 4px;
+  }
+
+  #homeScreen .home-right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-self: start;
+  }
+
+  #homeScreen .home-hero-block,
+  #homeScreen .home-learn-block,
+  #homeScreen .home-stats-block,
+  #homeScreen .home-lookup-block,
+  #homeScreen .home-reserve-block {
+    margin-top: 0;
+  }
+
+  #homeScreen .home-learn-block {
+    margin-top: 30px;
+  }
+
+  #homeScreen .home-lookup-block {
+    margin-top: 34px;
+  }
+
+  #homeScreen .home-reserve-block {
+    display: block;
+  }
+
+  #homeScreen .home-hero {
+    margin-bottom: 12px;
+    padding: 12px 14px;
+    border: 1px solid #d5e3da;
+    border-radius: 14px;
+    background: linear-gradient(180deg, #f4fcf7, #edf7f1);
+  }
+
+  #homeScreen h1 {
+    margin-bottom: 10px;
+  }
+
+  #homeScreen .home-flow-hint {
+    margin-bottom: 12px;
+  }
+
+  #homeScreen .stats-card {
+    margin-top: 0;
+  }
+
+  #encyclopediaScreen {
+    width: min(1480px, calc(100vw - 20px));
+    max-width: none;
+    margin: 10px auto;
+    padding: 24px;
+  }
+
+  #encyclopediaScreen .ency-filter-wrap {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.15fr) minmax(0, 0.8fr);
+    gap: 10px;
+    align-items: start;
+    margin-bottom: 12px;
+  }
+
+  #encyclopediaScreen #flowerList {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  #encyclopediaScreen .flower-card-image {
+    height: 300px;
+  }
+}
+
+@media (min-width: 821px) and (max-width: 1199px) and (orientation: landscape) {
+  body {
+    padding: 18px 10px 14px;
+  }
+
+  #homeScreen {
+    width: min(1260px, calc(100vw - 16px));
+    margin: 8px auto;
+    min-height: calc(100vh - 30px);
+    padding: 22px;
+  }
+
+  #homeScreen .home-layout {
+    grid-template-columns: minmax(0, 1.45fr) minmax(280px, 1fr);
+    column-gap: 16px;
+    min-height: 0;
+  }
+
+  #homeScreen .home-right-column {
+    gap: 10px;
+  }
+
+  #homeScreen .home-learn-block {
+    margin-top: 18px;
+  }
+
+  #homeScreen .home-lookup-block {
+    margin-top: 22px;
+  }
+
+  #homeScreen .home-reserve-block {
+    display: none;
+  }
+
+  #encyclopediaScreen {
+    width: min(1260px, calc(100vw - 16px));
+    margin: 8px auto;
+    padding: 20px;
+  }
+
+  #encyclopediaScreen #flowerList {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  #quizImage {
+    max-width: 250px;
+    height: 230px;
+  }
+}
+
+@media (max-width: 599px) {
+  #encyclopediaScreen .ency-filter-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #encyclopediaScreen .ency-filter-wrap > #searchInput {
+    order: 1 !important;
+  }
+
+  #encyclopediaScreen .ency-filter-wrap > #seasonFilter {
+    order: 2 !important;
+  }
+
+  #encyclopediaScreen .ency-filter-wrap > .birthday-filter-card {
+    order: 3 !important;
+  }
+
+  .birthday-wheel-wrap {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 520px) {
+  body {
+    padding-top: 20px;
+  }
+
+  .screen {
+    margin-top: 10px;
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  h1 {
+    font-size: 35px;
+  }
+
+  #quizImage {
+    height: 240px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .screen,
+  button {
+    animation: none;
+    transition: none;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <!-- ホーム画面 -->
+  <div id="homeScreen" class="screen" style="display:block;">
+    <div class="home-layout">
+      <div class="home-left-column">
+        <div class="home-hero-block">
+          <div class="home-hero">
+            <p class="home-kicker">BLOOM LEARNING STUDIO</p>
+            <h1>🌸 花学習アプリ</h1>
+            <p id="homeFlowHint" class="home-flow-hint">今日のおすすめからすぐ学習を始められます。</p>
+            <button id="quickActionBtn" class="btn-primary" onclick="startRecommendedFlow()">
+              <span class="btn-main">🌱 まずは季節別で始める</span>
+              <span class="btn-sub">10問ずつ、無理なくスタート</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="home-learn-block">
+          <p class="menu-label">LEARN</p>
+          <button class="menu-btn" onclick="showOrderRangeScreen()">
+            <span class="btn-main">🔢 全順番学習</span>
+            <span class="btn-sub">図鑑の番号順で積み上げ学習</span>
+          </button>
+          <button class="menu-btn" onclick="showSeasonSelectScreen()">
+            <span class="btn-main">🌸 季節別学習</span>
+            <span class="btn-sub">季節ごとに10問コースでテンポよく学習</span>
+          </button>
+          <button class="menu-btn" onclick="showRandomRangeScreen()">
+            <span class="btn-main">🎲 ランダム学習</span>
+            <span class="btn-sub">出題範囲を選んでランダム挑戦</span>
+          </button>
+        </div>
+
+        <div class="home-lookup-block">
+          <p class="menu-label">LOOKUP</p>
+          <button class="menu-btn" onclick="showEncyclopedia()">
+            <span class="btn-main">📖 図鑑</span>
+            <span class="btn-sub">花の情報を検索して確認</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="home-right-column">
+        <div class="home-stats-block">
+          <p id="dataLoadStatus" class="status-banner"></p>
+          <div id="statsCard" class="stats-card">
+            <p id="statsAccuracy">正答率: --</p>
+            <p id="statsTotalAnswers">総回答数: 0</p>
+            <p id="statsLastScore">前回スコア: --</p>
+            <p id="statsWrongLogs">誤答ログ: 0件</p>
+            <p id="statsTypeAccuracy">形式別正答率: --</p>
+            <p id="statsWeeklySessions">直近7日: 0セッション（0日）</p>
+            <p id="statsStreak">連続学習: 0日</p>
+            <p id="statsWeakTop">苦手TOP3: --</p>
+          </div>
+        </div>
+
+        <div class="home-reserve-block">
+          <div class="home-reserve-box">
+            <p class="home-reserve-title">NEW PANEL</p>
+            <p class="home-reserve-note">右側は今後追加する新機能エリアとして確保しています。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 図鑑画面 -->
+  <div id="encyclopediaScreen" class="screen">
+    <h2>📖 図鑑</h2>
+    <button onclick="goHome()">← 戻る</button>
+
+    <div class="ency-filter-wrap">
+      <input
+        type="text"
+        id="searchInput"
+        class="ency-filter-control"
+        placeholder="花の名前で検索"
+        oninput="renderEncyclopedia()"
+      >
+
+      <div class="birthday-filter-card">
+        <div id="birthdayWheelWrap" class="birthday-wheel-wrap">
+          <div class="birthday-wheel-col">
+            <span class="birthday-wheel-label">月</span>
+            <div class="ios-wheel-shell">
+              <div
+                id="birthdayMonthWheel"
+                class="ios-wheel"
+                role="listbox"
+                aria-label="birthday month"
+              ></div>
+              <div class="ios-wheel-focus" aria-hidden="true"></div>
+            </div>
+            <span id="birthdayMonthValue" class="birthday-value">0月</span>
+          </div>
+
+          <div class="birthday-wheel-col">
+            <span class="birthday-wheel-label">日</span>
+            <div class="ios-wheel-shell">
+              <div
+                id="birthdayDayWheel"
+                class="ios-wheel"
+                role="listbox"
+                aria-label="birthday day"
+              ></div>
+              <div class="ios-wheel-focus" aria-hidden="true"></div>
+            </div>
+            <span id="birthdayDayValue" class="birthday-value">0日</span>
+          </div>
+        </div>
+      </div>
+
+      <select
+        id="seasonFilter"
+        class="ency-filter-control"
+        onchange="renderEncyclopedia()"
+      >
+        <option value="all">季節：全て</option>
+        <option value="春">春</option>
+        <option value="夏">夏</option>
+        <option value="秋">秋</option>
+        <option value="冬">冬</option>
+      </select>
+    </div>
+
+    <div id="flowerList"></div>
+  </div>
+
+  <!-- 学習画面 -->
+  <div id="quizScreen" class="screen">
+    <h2>🌸 学習モード</h2>
+    <button onclick="goHome()">← 戻る</button>
+    <p id="progressText" style="font-weight:bold; margin-top:10px;"></p>
+    <p id="quizStartHint" class="quiz-hint"></p>
+    <div id="quizArea">
+      <img id="quizImage"><br><br>
+
+      <input type="text" id="quizNameAnswer" placeholder="花の名前"><br><br>
+      <input type="text" id="quizMeaningAnswer" placeholder="花言葉"><br><br>
+      <button id="submitAnswerBtn" onclick="checkAnswer()" style="display:none;">回答する</button>
+
+      <!-- 4択用 -->
+      <div id="choiceArea"></div>
+
+      <p id="resultMessage" style="height:30px; font-weight:bold;"></p>
+    </div>
+  </div>
+
+  <!-- 学習形式選択画面 -->
+  <div id="quizModeScreen" class="screen">
+    <h2>🧠 学習形式を選択</h2>
+    <button onclick="goHome()">← 戻る</button>
+    <p id="quizModeContext" class="mode-context" style="display:none;"></p>
+
+    <p style="font-weight:bold;">どの形式で学習する？</p>
+
+    <button onclick="startQuizWithType('input')">✍️ 入力式（名前＋花言葉）</button>
+
+    <p style="margin-top:15px; font-weight:bold;">4択モード</p>
+    <button onclick="startQuizWithType('mc_name')">🔤 花の名前を4択</button>
+    <button onclick="startQuizWithType('mc_meaning')">💬 花言葉を4択</button>
+  </div>
+
+  <!-- 全順番範囲選択画面 -->
+  <div id="orderRangeScreen" class="screen">
+    <h2>🔢 全順番範囲選択</h2>
+    <button onclick="goHome()">← 戻る</button>
+
+    <p style="font-weight:bold;">10問単位で範囲を選んでください</p>
+    <div id="orderRangeButtons"></div>
+  </div>
+
+  <!-- ランダム範囲選択画面 -->
+  <div id="randomRangeScreen" class="screen">
+    <h2>🎲 ランダム範囲選択</h2>
+    <button onclick="goHome()">← 戻る</button>
+
+    <p style="font-weight:bold;">範囲を選んでください</p>
+
+    <button onclick="startRandomWithRange('all')">全範囲</button>
+    <button onclick="startRandomWithRange('1-20')">No.1〜20</button>
+    <button onclick="startRandomWithRange('21-40')">No.21〜40</button>
+    <button onclick="startRandomWithRange('41-60')">No.41〜60</button>
+  </div>
+
+  <!-- 季節選択画面 -->
+  <div id="seasonSelectScreen" class="screen">
+    <h2>🌸 季節別学習</h2>
+    <button onclick="goHome()">← 戻る</button>
+
+    <p style="font-weight:bold;">季節を選んでください</p>
+
+    <button onclick="startSeasonWithFilter('春')">春</button>
+    <button onclick="startSeasonWithFilter('夏')">夏</button>
+    <button onclick="startSeasonWithFilter('秋')">秋</button>
+    <button onclick="startSeasonWithFilter('冬')">冬</button>
+  </div>
+
+  <!-- 季節別範囲選択画面 -->
+  <div id="seasonRangeScreen" class="screen">
+    <h2>🌸 季節別範囲選択</h2>
+    <button onclick="showSeasonSelectScreen()">← 季節選択へ戻る</button>
+
+    <p id="seasonRangeTitle" style="font-weight:bold;">10問単位で範囲を選んでください</p>
+    <div id="seasonRangeButtons"></div>
+  </div>
+
+<script src="data/flowers.js"></script>
+<script>
+if (!Array.isArray(window.FLOWERS) || window.FLOWERS.length === 0) {
+  document.write('<script src="flowers.js"><\\/script>');
+}
+</script>
+<script src="data/flower_image_overrides.js"></script>
+<script>
+if (!window.FLOWER_IMAGE_OVERRIDES || typeof window.FLOWER_IMAGE_OVERRIDES !== "object") {
+  document.write('<script src="flower_image_overrides.js"><\\/script>');
+}
+</script>
+<script>
+
+const fallbackFlowers = [
+  {
+    id: 1,
+    name: "バラ",
+    yomi: "ばら",
+    meanings: ["愛", "情熱"],
+    meaningsYomi: ["あい", "じょうねつ"],
+    seasons: ["春"],
+    regions: ["ヨーロッパ"],
+    image: "https://images.unsplash.com/photo-1621832990437-02599ece5c80?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    id: 2,
+    name: "ひまわり",
+    yomi: "ヒマワリ",
+    meanings: ["憧れ", "情熱"],
+    meaningsYomi: ["あこがれ", "じょうねつ"],
+    seasons: ["夏"],
+    regions: ["北アメリカ"],
+    image: "https://images.unsplash.com/photo-1594616647927-2382fe456b07?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    id: 3,
+    name: "桜",
+    yomi: "さくら",
+    meanings: ["精神美", "優雅"],
+    meaningsYomi: ["せいしんび", "ゆうが"],
+    birthdays: [
+      {
+        month: 4,
+        day: 1,
+        sourceUrl: "https://www.flower-db.com/ja/april-birth-flowers",
+        retrievedDate: "2026-04-12"
+      }
+    ],
+    seasons: ["春"],
+    regions: ["日本"],
+    image: "https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&fit=crop&w=900&q=80"
+  }
+];
+
+const externalFlowersLoaded =
+  Array.isArray(window.FLOWERS) && window.FLOWERS.length > 0;
+const flowers = externalFlowersLoaded ? window.FLOWERS : fallbackFlowers;
+const dataLoadWarningMessage = externalFlowersLoaded
+  ? ""
+  : "データ読込警告: flowers.js を読み込めなかったため、内蔵データで動作しています。";
+
+const IMAGE_FALLBACK_DATA_URI =
+  "data:image/svg+xml;charset=UTF-8," +
+  encodeURIComponent(
+    '<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600"><rect width="600" height="600" fill="#f4f5f7"/><g fill="#9aa1aa" font-family="Arial,sans-serif" text-anchor="middle"><text x="300" y="286" font-size="30">No Image</text><text x="300" y="330" font-size="22">差し替え準備中</text></g></svg>'
+  );
+const imageOverrides =
+  window.FLOWER_IMAGE_OVERRIDES &&
+  typeof window.FLOWER_IMAGE_OVERRIDES === "object"
+    ? window.FLOWER_IMAGE_OVERRIDES
+    : {};
+
+const STATS_STORAGE_KEY = "flowercodex_stats_v1";
+const WRONG_LOGS_STORAGE_KEY = "flowercodex_wrong_logs_v1";
+const WRONG_LOG_LIMIT = 500;
+const SESSION_HISTORY_LIMIT = 200;
+const WEAK_QUIZ_LIMIT = 10;
+let appStats = loadStats();
+let wrongLogs = loadWrongLogs();
+
+function kataToHira(str) {
+  return str.replace(/[\u30A1-\u30F6]/g, ch =>
+    String.fromCharCode(ch.charCodeAt(0) - 0x60)
+  );
+}
+
+function normalizeJa(str) {
+  return kataToHira(String(str || ""))
+    .replace(/\s/g, "")
+    .toLowerCase();
+}
+
+function escapeAttr(value) {
+  return String(value || "")
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+function resolveFlowerImage(flower) {
+  const idKey =
+    flower && flower.id !== undefined && flower.id !== null
+      ? String(flower.id)
+      : "";
+  const override =
+    typeof imageOverrides[idKey] === "string"
+      ? imageOverrides[idKey].trim()
+      : "";
+  if (override) return override;
+
+  const source = flower && typeof flower.image === "string"
+    ? flower.image.trim()
+    : "";
+  return source || IMAGE_FALLBACK_DATA_URI;
+}
+
+function handleImageError(imgEl) {
+  if (!imgEl || imgEl.dataset.fallbackApplied === "1") return;
+  imgEl.dataset.fallbackApplied = "1";
+  imgEl.src = IMAGE_FALLBACK_DATA_URI;
+}
+
+function createDefaultTypeStats() {
+  return {
+    input: { answers: 0, correct: 0 },
+    mc_name: { answers: 0, correct: 0 },
+    mc_meaning: { answers: 0, correct: 0 }
+  };
+}
+
+function normalizeTypeStats(rawTypeStats) {
+  const defaults = createDefaultTypeStats();
+  const raw =
+    rawTypeStats && typeof rawTypeStats === "object" ? rawTypeStats : {};
+
+  Object.keys(defaults).forEach(key => {
+    const item = raw[key] || {};
+    defaults[key] = {
+      answers: Number(item.answers || 0),
+      correct: Number(item.correct || 0)
+    };
+  });
+
+  return defaults;
+}
+
+function normalizeSessionHistory(rawHistory) {
+  if (!Array.isArray(rawHistory)) return [];
+
+  const normalized = rawHistory
+    .map(item => ({
+      score: Number(item && item.score || 0),
+      total: Number(item && item.total || 0),
+      mode: item && item.mode ? String(item.mode) : "",
+      quizType: item && item.quizType ? String(item.quizType) : "",
+      date: item && item.date ? String(item.date) : ""
+    }))
+    .filter(item => item.total > 0 && item.date);
+
+  if (normalized.length > SESSION_HISTORY_LIMIT) {
+    return normalized.slice(-SESSION_HISTORY_LIMIT);
+  }
+  return normalized;
+}
+
+function createDefaultStats() {
+  return {
+    totalAnswers: 0,
+    totalCorrect: 0,
+    lastSession: null,
+    typeStats: createDefaultTypeStats(),
+    sessionHistory: []
+  };
+}
+
+function loadStats() {
+  try {
+    const raw = localStorage.getItem(STATS_STORAGE_KEY);
+    if (!raw) return createDefaultStats();
+    const parsed = JSON.parse(raw);
+    const sessionHistory = normalizeSessionHistory(parsed.sessionHistory);
+    if (
+      sessionHistory.length === 0 &&
+      parsed.lastSession &&
+      Number(parsed.lastSession.total) > 0 &&
+      parsed.lastSession.date
+    ) {
+      sessionHistory.push({
+        score: Number(parsed.lastSession.score || 0),
+        total: Number(parsed.lastSession.total || 0),
+        mode: parsed.lastSession.mode || "",
+        quizType: parsed.lastSession.quizType || "",
+        date: parsed.lastSession.date
+      });
+    }
+    return {
+      totalAnswers: Number(parsed.totalAnswers || 0),
+      totalCorrect: Number(parsed.totalCorrect || 0),
+      lastSession: parsed.lastSession || null,
+      typeStats: normalizeTypeStats(parsed.typeStats),
+      sessionHistory
+    };
+  } catch (_error) {
+    return createDefaultStats();
+  }
+}
+
+function saveStats() {
+  try {
+    localStorage.setItem(STATS_STORAGE_KEY, JSON.stringify(appStats));
+  } catch (_error) {
+    // localStorageが使えない場合でも学習機能は継続する
+  }
+}
+
+function ensureTypeStatKey(typeKey) {
+  if (!appStats.typeStats || typeof appStats.typeStats !== "object") {
+    appStats.typeStats = createDefaultTypeStats();
+  }
+  if (!appStats.typeStats[typeKey]) {
+    appStats.typeStats[typeKey] = { answers: 0, correct: 0 };
+  }
+}
+
+function recordAnswerResult(isCorrect) {
+  appStats.totalAnswers += 1;
+  if (isCorrect) appStats.totalCorrect += 1;
+
+  ensureTypeStatKey(quizType);
+  appStats.typeStats[quizType].answers += 1;
+  if (isCorrect) appStats.typeStats[quizType].correct += 1;
+
+  saveStats();
+  updateStatsDashboard();
+}
+
+function recordSessionResult() {
+  const session = {
+    score: correctCount,
+    total: quizList.length,
+    mode: lastMode,
+    quizType,
+    date: new Date().toISOString(),
+    context: {
+      season: lastSeason,
+      seasonStartIndex: lastSeasonRangeStartIndex,
+      randomRange: lastRandomRange,
+      orderStart: lastOrderRangeStart,
+      orderEnd: lastOrderRangeEnd,
+      weakFlowerIds: Array.isArray(lastWeakFlowerIds) ? [...lastWeakFlowerIds] : []
+    }
+  };
+  appStats.lastSession = session;
+
+  if (!Array.isArray(appStats.sessionHistory)) {
+    appStats.sessionHistory = [];
+  }
+  appStats.sessionHistory.push(session);
+  if (appStats.sessionHistory.length > SESSION_HISTORY_LIMIT) {
+    appStats.sessionHistory = appStats.sessionHistory.slice(-SESSION_HISTORY_LIMIT);
+  }
+
+  saveStats();
+  updateStatsDashboard();
+}
+
+function formatAccuracy(correct, answers) {
+  if (!answers) return "-";
+  return Math.round((correct / answers) * 100) + "%";
+}
+
+function getDateKey(dateLike) {
+  const date = new Date(dateLike);
+  if (Number.isNaN(date.getTime())) return "";
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+function getRecentSessions(days) {
+  const history = Array.isArray(appStats.sessionHistory) ? appStats.sessionHistory : [];
+  if (history.length === 0) return [];
+
+  const today = new Date();
+  today.setHours(23, 59, 59, 999);
+  const from = new Date(today);
+  from.setDate(today.getDate() - (days - 1));
+  from.setHours(0, 0, 0, 0);
+
+  return history.filter(session => {
+    const ms = Date.parse(session.date);
+    return !Number.isNaN(ms) && ms >= from.getTime() && ms <= today.getTime();
+  });
+}
+
+function getStudyStreakDays() {
+  const history = Array.isArray(appStats.sessionHistory) ? appStats.sessionHistory : [];
+  if (history.length === 0) return 0;
+
+  const activeDays = new Set(
+    history
+      .map(session => getDateKey(session.date))
+      .filter(Boolean)
+  );
+  if (activeDays.size === 0) return 0;
+
+  let streak = 0;
+  const cursor = new Date();
+  cursor.setHours(12, 0, 0, 0);
+
+  while (true) {
+    const key = getDateKey(cursor);
+    if (!activeDays.has(key)) break;
+    streak += 1;
+    cursor.setDate(cursor.getDate() - 1);
+  }
+
+  return streak;
+}
+
+function getFlowerNameMap() {
+  const map = new Map();
+  flowers.forEach(flower => {
+    const id = Number(flower.id);
+    if (Number.isFinite(id)) {
+      map.set(id, flower.name || `No.${id}`);
+    }
+  });
+  return map;
+}
+
+function getWeakRanking(limit = 3) {
+  const flowerNameMap = getFlowerNameMap();
+  const counter = new Map();
+
+  wrongLogs.forEach(log => {
+    const id = Number(log.flowerId);
+    const name = log.flowerName || (Number.isFinite(id) ? flowerNameMap.get(id) : "") || "";
+    const key = Number.isFinite(id) ? `id:${id}` : `name:${normalizeJa(name)}`;
+    if (!key || key === "name:") return;
+
+    const current = counter.get(key) || {
+      id: Number.isFinite(id) ? id : null,
+      name,
+      count: 0
+    };
+    current.count += 1;
+    if (!current.name) {
+      current.name = Number.isFinite(id) ? flowerNameMap.get(id) || `No.${id}` : "不明";
+    }
+    counter.set(key, current);
+  });
+
+  return [...counter.values()]
+    .sort((a, b) => b.count - a.count || (a.id || 9999) - (b.id || 9999))
+    .slice(0, limit)
+    .map(item => ({
+      name: item.name || (item.id ? flowerNameMap.get(item.id) : "") || "不明",
+      count: item.count
+    }));
+}
+
+function formatTypeAccuracyText() {
+  const typeStats = appStats.typeStats || createDefaultTypeStats();
+  const input = typeStats.input || { answers: 0, correct: 0 };
+  const mcName = typeStats.mc_name || { answers: 0, correct: 0 };
+  const mcMeaning = typeStats.mc_meaning || { answers: 0, correct: 0 };
+
+  return [
+    `入劁E${formatAccuracy(input.correct, input.answers)}`,
+    `名前4抁E${formatAccuracy(mcName.correct, mcName.answers)}`,
+    `花言葁E抁E${formatAccuracy(mcMeaning.correct, mcMeaning.answers)}`
+  ].join(" / ");
+}
+
+function updateStatsDashboard() {
+  const accuracyEl = document.getElementById("statsAccuracy");
+  const totalAnswersEl = document.getElementById("statsTotalAnswers");
+  const lastScoreEl = document.getElementById("statsLastScore");
+  const wrongLogsEl = document.getElementById("statsWrongLogs");
+  const typeAccuracyEl = document.getElementById("statsTypeAccuracy");
+  const weeklySessionsEl = document.getElementById("statsWeeklySessions");
+  const streakEl = document.getElementById("statsStreak");
+  const weakTopEl = document.getElementById("statsWeakTop");
+  if (
+    !accuracyEl ||
+    !totalAnswersEl ||
+    !lastScoreEl ||
+    !wrongLogsEl ||
+    !typeAccuracyEl ||
+    !weeklySessionsEl ||
+    !streakEl ||
+    !weakTopEl
+  ) {
+    return;
+  }
+
+  accuracyEl.textContent =
+    "正答率: " + formatAccuracy(appStats.totalCorrect, appStats.totalAnswers);
+
+  totalAnswersEl.textContent = "総回答数: " + appStats.totalAnswers;
+
+  if (appStats.lastSession && Number(appStats.lastSession.total) > 0) {
+    lastScoreEl.textContent =
+      "前回スコア: " + appStats.lastSession.score + " / " + appStats.lastSession.total;
+  } else {
+    lastScoreEl.textContent = "前回スコア: --";
+  }
+
+  wrongLogsEl.textContent = "誤答ログ: " + wrongLogs.length + "件";
+  typeAccuracyEl.textContent = "形式別正答率: " + formatTypeAccuracyText();
+
+  const weeklySessions = getRecentSessions(7);
+  const weeklyDays = new Set(weeklySessions.map(session => getDateKey(session.date)).filter(Boolean));
+  weeklySessionsEl.textContent =
+    "直近7日: " + weeklySessions.length + "セッション（" + weeklyDays.size + "日）";
+
+  streakEl.textContent = "連続学習: " + getStudyStreakDays() + "日";
+
+  const weakTop = getWeakRanking(3);
+  weakTopEl.textContent = weakTop.length > 0
+    ? "苦手TOP3: " + weakTop.map(item => `${item.name}(${item.count})`).join(" / ")
+    : "苦手TOP3: --";
+
+  renderHomeQuickAction();
+}
+
+function parseFiniteNumber(value, fallback = 0) {
+  const num = Number(value);
+  return Number.isFinite(num) ? num : fallback;
+}
+
+function restoreSessionContextFromRecord(session) {
+  const context = session && typeof session.context === "object" ? session.context : {};
+
+  if (typeof context.season === "string" && context.season) {
+    lastSeason = context.season;
+  }
+  lastSeasonRangeStartIndex = parseFiniteNumber(context.seasonStartIndex, lastSeasonRangeStartIndex);
+
+  if (typeof context.randomRange === "string" && context.randomRange) {
+    lastRandomRange = context.randomRange;
+  }
+
+  lastOrderRangeStart = parseFiniteNumber(context.orderStart, lastOrderRangeStart);
+  lastOrderRangeEnd = parseFiniteNumber(context.orderEnd, lastOrderRangeEnd);
+
+  if (Array.isArray(context.weakFlowerIds)) {
+    lastWeakFlowerIds = context.weakFlowerIds
+      .map(id => Number(id))
+      .filter(id => Number.isFinite(id));
+  }
+}
+
+function getSessionModeLabel(mode) {
+  switch (mode) {
+    case "weak":
+      return "苦手学習";
+    case "season_range":
+      return "季節別学習";
+    case "order_range":
+      return "全順番学習";
+    case "random_range":
+      return "ランダム学習";
+    default:
+      return "学習";
+  }
+}
+
+function renderHomeQuickAction() {
+  const hintEl = document.getElementById("homeFlowHint");
+  const btn = document.getElementById("quickActionBtn");
+  if (!hintEl || !btn) return;
+
+  const hasWeakData = wrongLogs.length >= 3;
+  if (hasWeakData) {
+    hintEl.textContent = "最近の誤答を優先して、最短で苦手をつぶしましょう。";
+    btn.dataset.action = "weak";
+    btn.innerHTML =
+      '<span class="btn-main">🎯 苦手を先に復習する</span>' +
+      '<span class="btn-sub">誤答ログから最大10問を自動作成</span>';
+    return;
+  }
+
+  if (appStats.lastSession && Number(appStats.lastSession.total) > 0) {
+    const session = appStats.lastSession;
+    hintEl.textContent =
+      "前回の学習モードを同じ形式でそのまま再開できます。";
+    btn.dataset.action = "resume";
+    btn.innerHTML =
+      '<span class="btn-main">🔁 前回の続きから再開</span>' +
+      `<span class="btn-sub">${getSessionModeLabel(session.mode)} / ${session.score}問正解</span>`;
+    return;
+  }
+
+  hintEl.textContent = "まずは季節別10問コースで、花名と花言葉に慣れていきましょう。";
+  btn.dataset.action = "start";
+  btn.innerHTML =
+    '<span class="btn-main">🌱 まずは季節別で始める</span>' +
+    '<span class="btn-sub">10問ずつ、無理なくスタート</span>';
+}
+
+function resumeLastSession() {
+  const session = appStats.lastSession;
+  if (!session) {
+    showSeasonSelectScreen();
+    return;
+  }
+
+  if (session.quizType) {
+    quizType = session.quizType;
+  }
+
+  restoreSessionContextFromRecord(session);
+
+  switch (session.mode) {
+    case "weak":
+      startWeakStudy(true, true);
+      return;
+    case "season_range":
+      startSeasonRange(lastSeason || "春", lastSeasonRangeStartIndex, true);
+      return;
+    case "order_range":
+      startOrderWithRange(lastOrderRangeStart, lastOrderRangeEnd, true);
+      return;
+    case "random_range":
+      startRandomWithRange(lastRandomRange || "all", true);
+      return;
+    default:
+      showSeasonSelectScreen();
+  }
+}
+
+function startRecommendedFlow() {
+  const btn = document.getElementById("quickActionBtn");
+  const action = btn ? btn.dataset.action : "start";
+
+  if (action === "weak") {
+    startWeakStudy();
+    return;
+  }
+
+  if (action === "resume") {
+    resumeLastSession();
+    return;
+  }
+
+  showSeasonSelectScreen();
+}
+
+function loadWrongLogs() {
+  try {
+    const raw = localStorage.getItem(WRONG_LOGS_STORAGE_KEY);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return [];
+    return parsed;
+  } catch (_error) {
+    return [];
+  }
+}
+
+function saveWrongLogs() {
+  try {
+    localStorage.setItem(WRONG_LOGS_STORAGE_KEY, JSON.stringify(wrongLogs));
+  } catch (_error) {
+    // localStorageが使えない場合はログ保存だけをスキップする
+  }
+}
+
+function addWrongLog(log) {
+  if (!log || typeof log !== "object") return;
+  const normalizedLog = {
+    at: new Date().toISOString(),
+    mode: lastMode,
+    quizType,
+    ...log
+  };
+
+  wrongLogs.push(normalizedLog);
+  if (wrongLogs.length > WRONG_LOG_LIMIT) {
+    wrongLogs = wrongLogs.slice(-WRONG_LOG_LIMIT);
+  }
+
+  saveWrongLogs();
+  updateStatsDashboard();
+}
+
+function renderDataLoadStatus() {
+  const banner = document.getElementById("dataLoadStatus");
+  if (!banner) return;
+
+  if (!dataLoadWarningMessage) {
+    banner.style.display = "none";
+    banner.textContent = "";
+    return;
+  }
+
+  banner.style.display = "block";
+  banner.textContent = dataLoadWarningMessage;
+}
+
+function updateQuizStartHint() {
+  const hintEl = document.getElementById("quizStartHint");
+  if (!hintEl) return;
+
+  if (document.getElementById("quizScreen").style.display !== "block") {
+    hintEl.textContent = "";
+    hintEl.className = "quiz-hint";
+    return;
+  }
+
+  if (quizType !== "input") {
+    hintEl.textContent = "4択モード: 選択肢をタップして回答";
+    hintEl.className = "quiz-hint ok";
+    return;
+  }
+
+  const active = document.activeElement;
+  const hasInputFocus =
+    active &&
+    (active.id === "quizNameAnswer" || active.id === "quizMeaningAnswer");
+
+  if (hasInputFocus) {
+    hintEl.textContent = "入力中: Enter または「回答する」で判定";
+    hintEl.className = "quiz-hint ok";
+  } else {
+    hintEl.textContent = "開始するには入力欄をクリックしてください";
+    hintEl.className = "quiz-hint warn";
+  }
+}
+
+function openQuizModeScreen(contextText = "") {
+  hideAll();
+  document.getElementById("quizModeScreen").style.display = "block";
+
+  const contextEl = document.getElementById("quizModeContext");
+  if (!contextEl) return;
+
+  if (contextText) {
+    contextEl.style.display = "block";
+    contextEl.textContent = "対象: " + contextText;
+  } else {
+    contextEl.style.display = "none";
+    contextEl.textContent = "";
+  }
+}
+
+function getPendingModeDescription(mode) {
+  if (mode === "random") return "ランダム5問";
+  if (mode === "weak") return "苦手上位（最大10問）";
+  if (mode === "season") return "季節別10問コース";
+  return "";
+}
+
+function getRandomRangeLabel(range) {
+  if (range === "all") return "全範囲";
+  if (range === "1-20") return "No.1〜20";
+  if (range === "21-40") return "No.21〜40";
+  if (range === "41-60") return "No.41〜60";
+  return range || "ランダム";
+}
+
+const BIRTHDAY_WHEEL_ITEM_HEIGHT = 28;
+const BIRTHDAY_WHEEL_SNAP_DELAY = 90;
+const birthdayWheelSnapTimer = {};
+let birthdayMonthSelection = 0;
+let birthdayDaySelection = 0;
+
+function getBirthdayMaxDay(month) {
+  const m = Number(month);
+  if (m === 0) return 31;
+  if ([4, 6, 9, 11].includes(m)) return 30;
+  if (m === 2) return 29;
+  return 31;
+}
+
+function buildBirthdayWheelOptions(wheelEl, max, suffix, min = 1) {
+  if (!wheelEl) return;
+
+  const fragment = document.createDocumentFragment();
+  for (let i = min; i <= max; i++) {
+    const item = document.createElement("div");
+    item.className = "ios-wheel-item";
+    item.dataset.value = String(i);
+    item.textContent = i + suffix;
+    fragment.appendChild(item);
+  }
+
+  wheelEl.innerHTML = "";
+  wheelEl.appendChild(fragment);
+}
+
+function getBirthdayWheelValueFromScroll(wheelEl) {
+  if (!wheelEl || wheelEl.children.length === 0) return 0;
+
+  const firstItem = wheelEl.querySelector(".ios-wheel-item");
+  const itemHeight = firstItem
+    ? firstItem.offsetHeight || BIRTHDAY_WHEEL_ITEM_HEIGHT
+    : BIRTHDAY_WHEEL_ITEM_HEIGHT;
+
+  const rawIndex = Math.round(wheelEl.scrollTop / itemHeight);
+  const maxIndex = wheelEl.children.length - 1;
+  const index = Math.max(0, Math.min(maxIndex, rawIndex));
+  const item = wheelEl.children[index];
+  return Number(item && item.dataset.value) || 0;
+}
+
+function setBirthdayWheelActive(wheelEl, value) {
+  if (!wheelEl) return;
+
+  wheelEl.querySelectorAll(".ios-wheel-item").forEach(item => {
+    const isActive = Number(item.dataset.value) === Number(value);
+    item.classList.toggle("active", isActive);
+  });
+}
+
+function scrollBirthdayWheelToValue(wheelEl, value, behavior = "auto") {
+  if (!wheelEl) return;
+
+  const firstItem = wheelEl.querySelector(".ios-wheel-item");
+  const itemHeight = firstItem
+    ? firstItem.offsetHeight || BIRTHDAY_WHEEL_ITEM_HEIGHT
+    : BIRTHDAY_WHEEL_ITEM_HEIGHT;
+  const targetItem = wheelEl.querySelector(`.ios-wheel-item[data-value="${value}"]`);
+  if (!targetItem) return;
+
+  const index = Array.prototype.indexOf.call(wheelEl.children, targetItem);
+  const top = Math.max(0, index * itemHeight);
+  if (Math.abs(wheelEl.scrollTop - top) < 1) {
+    setBirthdayWheelActive(wheelEl, value);
+    return;
+  }
+  wheelEl.scrollTo({ top, behavior });
+  setBirthdayWheelActive(wheelEl, value);
+}
+
+function updateBirthdayValueLabels() {
+  const monthValue = document.getElementById("birthdayMonthValue");
+  const dayValue = document.getElementById("birthdayDayValue");
+  if (monthValue) monthValue.textContent = birthdayMonthSelection + "\u6708";
+  if (dayValue) dayValue.textContent = birthdayDaySelection + "\u65e5";
+}
+
+function syncBirthdayWheels(triggerRender = false, behavior = "auto") {
+  const monthWheel = document.getElementById("birthdayMonthWheel");
+  const dayWheel = document.getElementById("birthdayDayWheel");
+  if (!monthWheel || !dayWheel) return;
+
+  birthdayMonthSelection = Math.max(0, Math.min(12, Number(birthdayMonthSelection) || 0));
+  buildBirthdayWheelOptions(monthWheel, 12, "\u6708", 0);
+
+  const maxDay = getBirthdayMaxDay(birthdayMonthSelection);
+  birthdayDaySelection = Math.max(0, Math.min(maxDay, Number(birthdayDaySelection) || 0));
+  buildBirthdayWheelOptions(dayWheel, maxDay, "\u65e5", 0);
+
+  scrollBirthdayWheelToValue(monthWheel, birthdayMonthSelection, behavior);
+  scrollBirthdayWheelToValue(dayWheel, birthdayDaySelection, behavior);
+  updateBirthdayValueLabels();
+
+  if (triggerRender) {
+    renderEncyclopedia();
+  }
+}
+
+function onBirthdayWheelScroll(wheelEl) {
+  if (!wheelEl) return;
+
+  const timerKey = wheelEl.id;
+  if (birthdayWheelSnapTimer[timerKey]) {
+    clearTimeout(birthdayWheelSnapTimer[timerKey]);
+  }
+
+  birthdayWheelSnapTimer[timerKey] = setTimeout(() => {
+    const monthWheel = document.getElementById("birthdayMonthWheel");
+    const dayWheel = document.getElementById("birthdayDayWheel");
+    if (!monthWheel || !dayWheel) return;
+
+    birthdayMonthSelection = getBirthdayWheelValueFromScroll(monthWheel);
+    const maxDay = getBirthdayMaxDay(birthdayMonthSelection);
+    const dayCandidate = getBirthdayWheelValueFromScroll(dayWheel);
+
+    if (dayWheel.children.length !== (maxDay + 1)) {
+      buildBirthdayWheelOptions(dayWheel, maxDay, "\u65e5", 0);
+    }
+
+    birthdayDaySelection = Math.max(0, Math.min(maxDay, dayCandidate));
+
+    syncBirthdayWheels(true, "auto");
+  }, BIRTHDAY_WHEEL_SNAP_DELAY);
+}
+
+function onBirthdayWheelClick(event, wheelEl) {
+  if (!wheelEl) return;
+
+  const item = event.target.closest(".ios-wheel-item");
+  if (!item) return;
+
+  const value = Number(item.dataset.value) || 0;
+  if (wheelEl.id === "birthdayMonthWheel") {
+    birthdayMonthSelection = value;
+    const maxDay = getBirthdayMaxDay(birthdayMonthSelection);
+    birthdayDaySelection = Math.max(0, Math.min(maxDay, birthdayDaySelection));
+  } else {
+    const maxDay = getBirthdayMaxDay(birthdayMonthSelection);
+    birthdayDaySelection = Math.max(0, Math.min(maxDay, value));
+  }
+
+  syncBirthdayWheels(true, "auto");
+}
+
+function initializeBirthdayWheelsIfNeeded() {
+  const monthWheel = document.getElementById("birthdayMonthWheel");
+  const dayWheel = document.getElementById("birthdayDayWheel");
+  if (!monthWheel || !dayWheel) return;
+
+  if (monthWheel.dataset.initialized === "1" && dayWheel.dataset.initialized === "1") {
+    return;
+  }
+
+  monthWheel.addEventListener("scroll", () => onBirthdayWheelScroll(monthWheel), { passive: true });
+  dayWheel.addEventListener("scroll", () => onBirthdayWheelScroll(dayWheel), { passive: true });
+  monthWheel.addEventListener("click", event => onBirthdayWheelClick(event, monthWheel));
+  dayWheel.addEventListener("click", event => onBirthdayWheelClick(event, dayWheel));
+
+  monthWheel.dataset.initialized = "1";
+  dayWheel.dataset.initialized = "1";
+}
+
+function updateBirthdayRangeLabels(triggerRender = false) {
+  initializeBirthdayWheelsIfNeeded();
+
+  const monthWheel = document.getElementById("birthdayMonthWheel");
+  const dayWheel = document.getElementById("birthdayDayWheel");
+
+  if (!monthWheel || !dayWheel) return;
+
+  syncBirthdayWheels(false, "auto");
+
+  if (triggerRender) {
+    renderEncyclopedia();
+  }
+}
+
+function showEncyclopedia() {
+  hideAll();
+  document.getElementById("encyclopediaScreen").style.display = "block";
+
+  const input = document.getElementById("searchInput");
+  if (input) input.value = "";
+
+  const seasonSelect = document.getElementById("seasonFilter");
+  if (seasonSelect) seasonSelect.value = "all";
+
+  birthdayMonthSelection = 0;
+  birthdayDaySelection = 0;
+  updateBirthdayRangeLabels(false);
+
+  renderEncyclopedia();
+}
+
+function renderEncyclopedia() {
+  const list = document.getElementById("flowerList");
+  const input = document.getElementById("searchInput");
+  const seasonSelect = document.getElementById("seasonFilter");
+
+  const keywordRaw = input ? input.value : "";
+  const season = seasonSelect ? seasonSelect.value : "all";
+  const birthdayEnabled =
+    Number(birthdayMonthSelection) > 0 && Number(birthdayDaySelection) > 0;
+  const birthdayMonth = birthdayMonthSelection;
+  const birthdayDay = birthdayDaySelection;
+
+  const normalizedKeyword = normalizeJa(keywordRaw);
+
+  const filtered = flowers.filter(flower => {
+    // 名前・よみ（ひら/カタ差を無視して比較）
+    const nName = normalizeJa(flower.name);
+    const nYomi = normalizeJa(flower.yomi || "");
+
+    const matchName =
+      normalizedKeyword === "" ||
+      nName.includes(normalizedKeyword) ||
+      nYomi.includes(normalizedKeyword);
+
+    const matchSeason =
+      season === "all" || (flower.seasons && flower.seasons.includes(season));
+
+    const matchBirthday =
+      !birthdayEnabled ||
+      (Array.isArray(flower.birthdays) &&
+        flower.birthdays.some(
+          b => Number(b.month) === birthdayMonth && Number(b.day) === birthdayDay
+        ));
+
+    return matchName && matchSeason && matchBirthday;
+  });
+
+  let html = "";
+
+  filtered.forEach(flower => {
+    const imageSrc = escapeAttr(resolveFlowerImage(flower));
+    const birthdayText =
+      Array.isArray(flower.birthdays) && flower.birthdays.length > 0
+        ? "誕生花：" +
+          flower.birthdays.map(b => `${b.month}/${b.day}`).join("・") +
+          "<br>"
+        : "";
+
+    html += `
+      <article class="flower-card">
+        <h3>No.${flower.id} ${flower.name}</h3>
+        <img class="flower-card-image" src="${imageSrc}" loading="lazy" onerror="handleImageError(this)">
+        <p class="flower-meta">
+          花言葉：${flower.meanings.join("・")}<br>
+          季節：${flower.seasons.join("・")}<br>
+          ${birthdayText}
+        </p>
+      </article>
+    `;
+  });
+
+  if (filtered.length === 0) {
+    html = `<p class="flower-empty">見つかりませんでした</p>`;
+  }
+
+  list.innerHTML = html;
+}
+
+let currentIndex = 0;
+let quizList = [];
+
+let correctCount = 0;
+let lastMode = "order";
+let lastSeason = "all";
+let lastRandomRange = "all";
+let lastOrderRangeStart = 1;
+let lastOrderRangeEnd = 10;
+let lastSeasonRangeStartIndex = 0;
+let lastWeakFlowerIds = [];
+
+let quizType = "input";     // "input" | "mc_name" | "mc_meaning"
+let pendingMode = "order";  // 学習形式選択画面で保持する出題モード
+let currentChoiceAnswer = "";
+let questionLocked = false;
+
+const ORDER_BLOCK_SIZE = 10;
+const WAIT_OK = 1000;     // 正解: 短め
+const WAIT_NG = 2100;     // 不正解: 少し長め
+function startQuiz(mode) {
+ lastMode = mode;
+correctCount = 0;
+  hideAll();
+  document.getElementById("quizScreen").style.display = "block";
+
+  if (mode === "order") {
+    quizList = [...flowers];
+  } else if (mode === "random") {
+    quizList = shuffle(flowers);
+  } else {
+    quizList = [...flowers];
+  }
+
+  // 5問モード（仮）
+  const questionLimit = 5;
+  if (quizList.length > questionLimit) {
+    quizList = quizList.slice(0, questionLimit);
+  }
+
+  currentIndex = 0;
+  showQuestion();
+}
+
+function showQuestion() {
+  const flower = quizList[currentIndex];
+  const quizImage = document.getElementById("quizImage");
+
+  quizImage.dataset.fallbackApplied = "0";
+  quizImage.onerror = () => handleImageError(quizImage);
+  quizImage.src = resolveFlowerImage(flower);
+  document.getElementById("resultMessage").textContent = "";
+
+  document.getElementById("progressText").textContent =
+    (currentIndex + 1) + " / " + quizList.length + " 問";
+
+  const nameInput = document.getElementById("quizNameAnswer");
+  const meaningInput = document.getElementById("quizMeaningAnswer");
+  const choiceArea = document.getElementById("choiceArea");
+  const submitBtn = document.getElementById("submitAnswerBtn");
+  questionLocked = false;
+
+  // 初期化
+  nameInput.value = "";
+  meaningInput.value = "";
+  choiceArea.innerHTML = "";
+  submitBtn.disabled = false;
+
+  if (quizType === "input") {
+    currentChoiceAnswer = "";
+    // 入力式を表示
+    nameInput.style.display = "inline-block";
+    meaningInput.style.display = "inline-block";
+    submitBtn.style.display = "inline-block";
+    updateQuizStartHint();
+    return;
+  }
+
+  // 4択は入力欄を隠す
+  nameInput.style.display = "none";
+  meaningInput.style.display = "none";
+  submitBtn.style.display = "none";
+
+  const choiceData = buildChoices(flower, quizType); // 下で定義
+  currentChoiceAnswer = choiceData.correctText;
+
+  choiceData.choices.forEach(text => {
+  const btn = document.createElement("button");
+  btn.textContent = text;
+  btn.className = "choice-btn";
+  btn.onclick = () => checkChoiceAnswer(text, btn);
+  choiceArea.appendChild(btn);
+});
+  updateQuizStartHint();
+}
+
+function shuffle(array) {
+  const copied = [...array];
+  for (let i = copied.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copied[i], copied[j]] = [copied[j], copied[i]];
+  }
+  return copied;
+}
+
+function buildChoices(correctFlower, type) {
+  // 正解テキスト（花言葉は毎回ランダムで1つ選ぶ）
+  const correctText =
+    type === "mc_name"
+      ? correctFlower.name
+      : shuffle((correctFlower.meanings || []).filter(Boolean))[0] || "";
+
+  // 候補プール（重複と正解テキストの重なりを除外）
+  const rawPool =
+    type === "mc_name"
+      ? flowers
+          .filter(f => f.id !== correctFlower.id)
+          .map(f => f.name)
+      : flowers.flatMap(f =>
+          Array.isArray(f.meanings) ? f.meanings : []
+        );
+
+  const seen = new Set([normalizeJa(correctText)]);
+  const uniquePool = [];
+
+  rawPool.forEach(text => {
+    const key = normalizeJa(text);
+    if (!key || seen.has(key)) return;
+    seen.add(key);
+    uniquePool.push(text);
+  });
+
+  const picked = shuffle(uniquePool).slice(0, 3);
+  return {
+    choices: shuffle([correctText, ...picked]),
+    correctText
+  };
+}
+
+function checkChoiceAnswer(selectedText, clickedBtn) {
+  if (questionLocked) return;
+  questionLocked = true;
+
+  const flower = quizList[currentIndex];
+
+  const correctText = currentChoiceAnswer;
+  const isCorrect = normalizeJa(selectedText) === normalizeJa(correctText);
+
+  const resultMessage = document.getElementById("resultMessage");
+  const allButtons = document.querySelectorAll("#choiceArea .choice-btn");
+
+  // 連打防止
+  allButtons.forEach(btn => {
+    btn.disabled = true;
+  });
+
+  // 押したボタンを色分け
+  if (isCorrect) {
+    clickedBtn.classList.add("correct");
+    correctCount++;
+    resultMessage.textContent =
+      "正解！「" + flower.name + " / " + flower.meanings.join("・") + "」";
+    resultMessage.style.color = "green";
+  } else {
+    clickedBtn.classList.add("wrong");
+    addWrongLog({
+      flowerId: flower.id,
+      flowerName: flower.name,
+      answerType: quizType === "mc_name" ? "name_choice" : "meaning_choice",
+      expected: correctText,
+      answered: selectedText
+    });
+
+    resultMessage.textContent =
+      "不正解！正解は「" + flower.name + " / " + flower.meanings.join("・") + "」";
+    resultMessage.style.color = "red";
+
+    // 正解ボタンも緑にする
+    allButtons.forEach(btn => {
+      if (normalizeJa(btn.textContent) === normalizeJa(correctText)) {
+        btn.classList.add("correct");
+      }
+    });
+  }
+
+  recordAnswerResult(isCorrect);
+
+  setTimeout(nextQuestionOrEnd, isCorrect ? WAIT_OK : WAIT_NG);
+}
+
+function nextQuestionOrEnd() {
+  currentIndex++;
+  if (currentIndex >= quizList.length) {
+    showEndScreen();
+  } else {
+    showQuestion();
+  }
+}
+
+function goHome() {
+  hideAll();
+  document.getElementById("homeScreen").style.display = "block";
+  updateStatsDashboard();
+  renderDataLoadStatus();
+}
+
+function showSeasonSelectScreen() {
+  hideAll();
+  document.getElementById("seasonSelectScreen").style.display = "block";
+}
+
+function startSeasonWithFilter(season, skipTypeSelect = false) {
+  if (skipTypeSelect) {
+    startSeasonRange(season, lastSeasonRangeStartIndex, true);
+    return;
+  }
+
+  showSeasonRangeScreen(season);
+}
+
+function buildSeasonRanges(season) {
+  const seasonal = flowers
+    .filter(f => Array.isArray(f.seasons) && f.seasons.includes(season))
+    .sort((a, b) => a.id - b.id);
+
+  const ranges = [];
+  for (let startIndex = 0; startIndex < seasonal.length; startIndex += ORDER_BLOCK_SIZE) {
+    const endIndex = Math.min(startIndex + ORDER_BLOCK_SIZE - 1, seasonal.length - 1);
+    ranges.push({
+      season,
+      startIndex,
+      endIndex,
+      count: endIndex - startIndex + 1
+    });
+  }
+
+  return { seasonal, ranges };
+}
+
+function renderSeasonRangeButtons(season) {
+  const titleEl = document.getElementById("seasonRangeTitle");
+  const container = document.getElementById("seasonRangeButtons");
+  if (!titleEl || !container) return;
+
+  const seasonData = buildSeasonRanges(season);
+  titleEl.textContent = `${season}の10問コースを選んでください`;
+  container.innerHTML = "";
+
+  if (seasonData.seasonal.length === 0) {
+    container.innerHTML = `<p style="font-weight:bold;">その季節のデータがありません</p>`;
+    return;
+  }
+
+  seasonData.ranges.forEach(range => {
+    const from = range.startIndex + 1;
+    const to = range.endIndex + 1;
+    const btn = document.createElement("button");
+    btn.textContent = `${season} ${from}〜${to}（${range.count}問）`;
+    btn.onclick = () => startSeasonRange(season, range.startIndex);
+    container.appendChild(btn);
+  });
+}
+
+function showSeasonRangeScreen(season) {
+  hideAll();
+  document.getElementById("seasonRangeScreen").style.display = "block";
+  renderSeasonRangeButtons(season);
+}
+
+function startSeasonRange(season, startIndex, skipTypeSelect = false) {
+  const seasonData = buildSeasonRanges(season);
+  const start = Number(startIndex) || 0;
+  const filtered = seasonData.seasonal.slice(start, start + ORDER_BLOCK_SIZE);
+  if (filtered.length === 0) {
+    alert("その季節のデータがありません");
+    return;
+  }
+
+  quizList = [...filtered];
+  currentIndex = 0;
+  correctCount = 0;
+  lastMode = "season_range";
+  lastSeason = season;
+  lastSeasonRangeStartIndex = start;
+  pendingMode = "custom";
+
+  if (skipTypeSelect) {
+    startQuizWithType(quizType);
+    return;
+  }
+
+  const from = start + 1;
+  const to = start + filtered.length;
+  openQuizModeScreen(`${season} ${from}〜${to}（${filtered.length}問）`);
+}
+
+function showQuizModeScreen(mode) {
+  if (mode === "order") {
+    showOrderRangeScreen();
+    return;
+  }
+
+  pendingMode = mode; // どの出題モードで始めるか保持
+  openQuizModeScreen(getPendingModeDescription(mode));
+}
+
+function getMaxFlowerId() {
+  return flowers.reduce((max, flower) => Math.max(max, Number(flower.id) || 0), 0);
+}
+
+function buildOrderRanges() {
+  const maxId = getMaxFlowerId();
+  const ranges = [];
+
+  for (let start = 1; start <= maxId; start += ORDER_BLOCK_SIZE) {
+    const end = Math.min(start + ORDER_BLOCK_SIZE - 1, maxId);
+    const count = flowers.filter(f => f.id >= start && f.id <= end).length;
+    if (count === 0) continue;
+    ranges.push({ start, end, count });
+  }
+
+  return ranges;
+}
+
+function renderOrderRangeButtons() {
+  const container = document.getElementById("orderRangeButtons");
+  if (!container) return;
+
+  const ranges = buildOrderRanges();
+  container.innerHTML = "";
+
+  if (ranges.length === 0) {
+    container.innerHTML = `<p style="font-weight:bold;">表示できる範囲がありません</p>`;
+    return;
+  }
+
+  ranges.forEach(range => {
+    const btn = document.createElement("button");
+    btn.textContent = `No.${range.start}〜${range.end}（${range.count}問）`;
+    btn.onclick = () => startOrderWithRange(range.start, range.end);
+    container.appendChild(btn);
+  });
+}
+
+function showOrderRangeScreen() {
+  hideAll();
+  document.getElementById("orderRangeScreen").style.display = "block";
+  renderOrderRangeButtons();
+}
+
+function startOrderWithRange(start, end, skipTypeSelect = false) {
+  const filtered = flowers
+    .filter(f => f.id >= start && f.id <= end)
+    .sort((a, b) => a.id - b.id);
+
+  if (filtered.length === 0) {
+    alert("その範囲にデータがありません");
+    return;
+  }
+
+  quizList = [...filtered];
+  currentIndex = 0;
+  correctCount = 0;
+  lastMode = "order_range";
+  lastOrderRangeStart = start;
+  lastOrderRangeEnd = end;
+  pendingMode = "custom";
+
+  if (skipTypeSelect) {
+    startQuizWithType(quizType);
+    return;
+  }
+
+  openQuizModeScreen(`No.${start}〜${end}（${filtered.length}問）`);
+}
+
+function startQuizWithType(type) {
+  quizType = type;
+
+  if (pendingMode === "custom") {
+    currentIndex = 0;
+    correctCount = 0;
+    hideAll();
+    document.getElementById("quizScreen").style.display = "block";
+    showQuestion();
+  } else {
+    startQuiz(pendingMode);
+  }
+}
+
+function showRandomRangeScreen() {
+  hideAll();
+  document.getElementById("randomRangeScreen").style.display = "block";
+}
+
+function buildWeakFlowerList(limit = WEAK_QUIZ_LIMIT) {
+  const flowerMap = new Map();
+  flowers.forEach(flower => {
+    const id = Number(flower.id);
+    if (Number.isFinite(id)) {
+      flowerMap.set(id, flower);
+    }
+  });
+
+  const scored = new Map();
+  wrongLogs.forEach(log => {
+    const flowerId = Number(log.flowerId);
+    if (!Number.isFinite(flowerId)) return;
+
+    const flower = flowerMap.get(flowerId);
+    if (!flower) return;
+
+    const current = scored.get(flowerId) || {
+      flower,
+      count: 0,
+      lastAt: 0
+    };
+    current.count += 1;
+
+    const atMs = Date.parse(log.at);
+    if (!Number.isNaN(atMs) && atMs > current.lastAt) {
+      current.lastAt = atMs;
+    }
+    scored.set(flowerId, current);
+  });
+
+  return [...scored.values()]
+    .sort((a, b) =>
+      b.count - a.count ||
+      b.lastAt - a.lastAt ||
+      Number(a.flower.id) - Number(b.flower.id)
+    )
+    .slice(0, limit)
+    .map(item => item.flower);
+}
+
+function startWeakStudy(skipTypeSelect = false, useSnapshot = false) {
+  let weakFlowers = [];
+
+  if (useSnapshot && Array.isArray(lastWeakFlowerIds) && lastWeakFlowerIds.length > 0) {
+    const flowerMap = new Map();
+    flowers.forEach(flower => {
+      const id = Number(flower.id);
+      if (Number.isFinite(id)) {
+        flowerMap.set(id, flower);
+      }
+    });
+
+    weakFlowers = lastWeakFlowerIds
+      .map(id => flowerMap.get(Number(id)))
+      .filter(Boolean);
+  }
+
+  if (weakFlowers.length === 0) {
+    weakFlowers = buildWeakFlowerList(WEAK_QUIZ_LIMIT);
+  }
+
+  if (weakFlowers.length === 0) {
+    alert("まだ苦手データがありません。まずは通常学習で誤答ログをためてください。");
+    return;
+  }
+
+  lastWeakFlowerIds = weakFlowers.map(flower => Number(flower.id));
+
+  quizList = shuffle(weakFlowers);
+  currentIndex = 0;
+  correctCount = 0;
+  lastMode = "weak";
+  pendingMode = "custom";
+
+  if (skipTypeSelect) {
+    startQuizWithType(quizType);
+    return;
+  }
+
+  openQuizModeScreen(`苦手上位（${quizList.length}問）`);
+}
+
+function startRandomWithRange(range, skipTypeSelect = false) {
+  let filtered = [];
+
+  if (range === "all") {
+    filtered = [...flowers];
+  } else if (range === "1-20") {
+    filtered = flowers.filter(f => f.id >= 1 && f.id <= 20);
+  } else if (range === "21-40") {
+    filtered = flowers.filter(f => f.id >= 21 && f.id <= 40);
+  } else if (range === "41-60") {
+    filtered = flowers.filter(f => f.id >= 41 && f.id <= 60);
+  }
+
+  // シャッフル
+quizList = shuffle(filtered);
+
+// 0件なら学習を開始しない
+if (quizList.length === 0) {
+  alert("その範囲にデータがありません");
+  return;
+}
+
+// 5問制限（既存ロジックと同じ）
+const questionLimit = 5;
+if (quizList.length > questionLimit) {
+  quizList = quizList.slice(0, questionLimit);
+}
+
+correctCount = 0;
+lastMode = "random_range";
+lastRandomRange = range;
+currentIndex = 0;
+
+pendingMode = "custom";
+if (skipTypeSelect) {
+  // もう一回は、今のquizTypeで即スタート
+  startQuizWithType(quizType);
+  return;
+}
+
+openQuizModeScreen(`${getRandomRangeLabel(range)}ランダム（${quizList.length}問）`);
+}
+
+function showEndScreen() {
+  recordSessionResult();
+  hideAll();
+  document.getElementById("endScreen").style.display = "block";
+
+  document.getElementById("finalScore").textContent =
+    "今回のスコア: " + correctCount + " / " + quizList.length;
+
+  updateEndActionButtons();
+}
+
+function updateEndActionButtons() {
+  const nextBtn = document.getElementById("nextOrderRangeBtn");
+  if (!nextBtn) return;
+
+  if (lastMode !== "order_range" && lastMode !== "season_range") {
+    nextBtn.style.display = "none";
+    nextBtn.disabled = false;
+    return;
+  }
+
+  nextBtn.style.display = "inline-block";
+
+  if (lastMode === "order_range") {
+    const nextStart = lastOrderRangeEnd + 1;
+    const nextEnd = nextStart + ORDER_BLOCK_SIZE - 1;
+    const maxId = getMaxFlowerId();
+    const hasNext = flowers.some(f => f.id >= nextStart && f.id <= nextEnd);
+    nextBtn.disabled = !hasNext;
+    nextBtn.textContent = hasNext
+      ? `➡️ 次の10問へ（No.${nextStart}〜${Math.min(nextEnd, maxId)}）`
+      : "次の範囲はありません";
+    return;
+  }
+
+  const seasonData = buildSeasonRanges(lastSeason);
+  const currentRangeIndex = seasonData.ranges.findIndex(
+    range => range.startIndex === lastSeasonRangeStartIndex
+  );
+  const nextRange = currentRangeIndex >= 0
+    ? seasonData.ranges[currentRangeIndex + 1]
+    : null;
+
+  const hasNextSeasonRange = Boolean(nextRange);
+  nextBtn.disabled = !hasNextSeasonRange;
+  if (hasNextSeasonRange) {
+    const from = nextRange.startIndex + 1;
+    const to = nextRange.endIndex + 1;
+    nextBtn.textContent = `➡️ 次の10問へ（${lastSeason} ${from}〜${to}）`;
+  } else {
+    nextBtn.textContent = "次の範囲はありません";
+  }
+}
+
+function goNextOrderRange() {
+  if (lastMode === "order_range") {
+    const nextStart = lastOrderRangeEnd + 1;
+    const nextEnd = nextStart + ORDER_BLOCK_SIZE - 1;
+    const hasNext = flowers.some(f => f.id >= nextStart && f.id <= nextEnd);
+    if (!hasNext) {
+      alert("次の範囲はありません");
+      return;
+    }
+    startOrderWithRange(nextStart, nextEnd, true);
+    return;
+  }
+
+  if (lastMode === "season_range") {
+    const seasonData = buildSeasonRanges(lastSeason);
+    const currentRangeIndex = seasonData.ranges.findIndex(
+      range => range.startIndex === lastSeasonRangeStartIndex
+    );
+    const nextRange = currentRangeIndex >= 0
+      ? seasonData.ranges[currentRangeIndex + 1]
+      : null;
+    if (!nextRange) {
+      alert("次の範囲はありません");
+      return;
+    }
+    startSeasonRange(lastSeason, nextRange.startIndex, true);
+  }
+}
+
+function restartSameMode() {
+  if (lastMode === "season" || lastMode === "season_range") {
+    startSeasonRange(lastSeason, lastSeasonRangeStartIndex, true);
+  } else if (lastMode === "random_range") {
+    startRandomWithRange(lastRandomRange, true);
+  } else if (lastMode === "weak") {
+    startWeakStudy(true, true);
+  } else if (lastMode === "order_range") {
+    startOrderWithRange(lastOrderRangeStart, lastOrderRangeEnd, true);
+  } else {
+    startQuiz(lastMode);
+  }
+}
+
+function hideAll() {
+  document.querySelectorAll(".screen").forEach(el => {
+    el.style.display = "none";
+  });
+}
+
+document.addEventListener("focusin", function(event) {
+  if (
+    event.target &&
+    (event.target.id === "quizNameAnswer" || event.target.id === "quizMeaningAnswer")
+  ) {
+    updateQuizStartHint();
+  }
+});
+
+document.addEventListener("focusout", function(event) {
+  if (
+    event.target &&
+    (event.target.id === "quizNameAnswer" || event.target.id === "quizMeaningAnswer")
+  ) {
+    setTimeout(updateQuizStartHint, 0);
+  }
+});
+
+document.addEventListener("keydown", function(event) {
+  if (
+  event.key === "Enter" &&
+  document.getElementById("quizScreen").style.display === "block" &&
+  quizType === "input"
+) {
+  event.preventDefault();
+  checkAnswer();
+}
+});
+
+function checkAnswer() {
+  if (quizType !== "input" || questionLocked) return;
+  questionLocked = true;
+
+  const flower = quizList[currentIndex];
+  const submitBtn = document.getElementById("submitAnswerBtn");
+  if (submitBtn) submitBtn.disabled = true;
+
+  const nameAnswer = document.getElementById("quizNameAnswer").value.trim();
+  const meaningAnswer = document.getElementById("quizMeaningAnswer").value.trim();
+
+  const normalizedInputName = normalizeJa(nameAnswer);
+  const normalizedFlowerName = normalizeJa(flower.name);
+  const normalizedFlowerYomi = normalizeJa(flower.yomi || "");
+
+  const nameCorrect =
+    normalizedInputName === normalizedFlowerName ||
+    (normalizedFlowerYomi && normalizedInputName === normalizedFlowerYomi);
+
+  const normalizedInputMeaning = normalizeJa(meaningAnswer);
+
+  const meaningTexts = Array.isArray(flower.meanings) ? flower.meanings : [];
+  const meaningYomi = Array.isArray(flower.meaningsYomi) ? flower.meaningsYomi : [];
+  const meaningCandidates = [...meaningTexts, ...meaningYomi];
+
+  const meaningCorrect =
+    meaningCandidates.some(m => normalizeJa(m) === normalizedInputMeaning);
+
+  const isCorrect = nameCorrect && meaningCorrect;
+
+  const resultMessage = document.getElementById("resultMessage");
+
+  if (isCorrect) {
+    correctCount++;
+    resultMessage.textContent =
+      "正解！「" + flower.name + " / " + flower.meanings.join("・") + "」";
+    resultMessage.style.color = "green";
+  } else {
+    addWrongLog({
+      flowerId: flower.id,
+      flowerName: flower.name,
+      answerType: "input",
+      expectedName: flower.name,
+      expectedYomi: flower.yomi || "",
+      answeredName: nameAnswer,
+      expectedMeanings: flower.meanings.join("・"),
+      expectedMeaningsYomi: meaningYomi.join("・"),
+      answeredMeaning: meaningAnswer,
+      nameCorrect,
+      meaningCorrect
+    });
+    resultMessage.textContent =
+      "不正解！正解は「" + flower.name + " / " + flower.meanings.join("・") + "」";
+    resultMessage.style.color = "red";
+  }
+
+  recordAnswerResult(isCorrect);
+  updateQuizStartHint();
+
+  setTimeout(nextQuestionOrEnd, isCorrect ? WAIT_OK : WAIT_NG);
+}
+
+updateStatsDashboard();
+renderDataLoadStatus();
+updateBirthdayRangeLabels(false);
+</script>
+
+<!-- 終了画面 -->
+<div id="endScreen" class="screen">
+  <h2>🎉 終了！</h2>
+
+  <p id="finalScore" style="font-size:20px; font-weight:bold;"></p>
+
+  <button id="nextOrderRangeBtn" onclick="goNextOrderRange()" style="display:none;">➡️ 次の10問へ</button>
+  <button onclick="restartSameMode()">🔁 もう一回</button>
+  <button onclick="goHome()">🏠 ホームへ</button>
+</div>
+
+</body>
+</html>
+
+
