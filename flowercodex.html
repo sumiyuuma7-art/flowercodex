@@ -312,25 +312,6 @@ input:focus, select:focus {
   line-height: 1.4;
 }
 
-.nav-debug {
-  display: none;
-  position: fixed;
-  left: 8px;
-  right: 8px;
-  bottom: 8px;
-  z-index: 9999;
-  padding: 8px 10px;
-  border: 1px solid #3f5464;
-  border-radius: 10px;
-  background: rgba(24, 31, 37, 0.92);
-  color: #eaf1ff;
-  font-size: 12px;
-  line-height: 1.35;
-  text-align: left;
-  white-space: pre-wrap;
-  pointer-events: none;
-}
-
 .quiz-hint {
   min-height: 24px;
   margin: 8px 0 12px;
@@ -854,8 +835,6 @@ input:focus, select:focus {
       </div>
     </div>
   </div>
-
-  <div id="navDebugPanel" class="nav-debug"></div>
 
   <!-- 図鑑画面 -->
   <div id="encyclopediaScreen" class="screen">
@@ -1549,109 +1528,6 @@ function startRecommendedFlow() {
   }
 
   showSeasonSelectScreen();
-}
-
-let lastHomeNavActionAt = 0;
-let navDebugEnabled = false;
-let navDebugLines = [];
-let navDebugInitialized = false;
-
-function logNavDebug(message) {
-  if (!navDebugEnabled) return;
-  const panel = document.getElementById("navDebugPanel");
-  if (!panel) return;
-
-  const now = new Date();
-  const hh = String(now.getHours()).padStart(2, "0");
-  const mm = String(now.getMinutes()).padStart(2, "0");
-  const ss = String(now.getSeconds()).padStart(2, "0");
-  navDebugLines.push(`${hh}:${mm}:${ss} ${message}`);
-  if (navDebugLines.length > 7) {
-    navDebugLines = navDebugLines.slice(-7);
-  }
-  panel.textContent = navDebugLines.join("\n");
-}
-
-function initNavDebugPanel() {
-  const panel = document.getElementById("navDebugPanel");
-  navDebugEnabled = /(?:\?|&)dbg=1(?:&|$)/.test(String(window.location.search || ""));
-
-  if (!panel) return;
-  panel.style.display = navDebugEnabled ? "block" : "none";
-  if (!navDebugEnabled || navDebugInitialized) return;
-
-  navDebugInitialized = true;
-  logNavDebug("debug on");
-
-  window.addEventListener("error", event => {
-    const msg = event && event.message ? event.message : "unknown error";
-    logNavDebug(`error: ${msg}`);
-  });
-
-  window.addEventListener("unhandledrejection", event => {
-    const reason = event && event.reason ? String(event.reason) : "promise rejection";
-    logNavDebug(`promise: ${reason}`);
-  });
-}
-
-function runHomeNavAction(action) {
-  if (typeof action !== "function") {
-    logNavDebug("action missing");
-    return;
-  }
-  const now = Date.now();
-  if (now - lastHomeNavActionAt < 280) {
-    logNavDebug("tap skipped");
-    return;
-  }
-  lastHomeNavActionAt = now;
-  try {
-    logNavDebug(`run ${action.name || "anonymous"}`);
-    action();
-  } catch (error) {
-    const errorText = error && error.message ? error.message : String(error);
-    logNavDebug(`fail ${errorText}`);
-    throw error;
-  }
-}
-
-function bindHomeNavigationButtons() {
-  const bindings = [
-    ["quickActionBtn", startRecommendedFlow],
-    ["homeOrderBtn", showOrderRangeScreen],
-    ["homeSeasonBtn", showSeasonSelectScreen],
-    ["homeRandomBtn", showRandomRangeScreen],
-    ["homeLookupBtn", showEncyclopedia]
-  ];
-
-  bindings.forEach(([id, action]) => {
-    const button = document.getElementById(id);
-    if (!button || button.dataset.boundNav === "1") return;
-    button.dataset.boundNav = "1";
-
-    button.addEventListener("click", event => {
-      event.preventDefault();
-      logNavDebug(`${id}: click`);
-      runHomeNavAction(action);
-    });
-
-    // iOSでclickが取りこぼされるケース向けの保険
-    button.addEventListener(
-      "touchend",
-      event => {
-        event.preventDefault();
-        logNavDebug(`${id}: touchend`);
-        runHomeNavAction(action);
-      },
-      { passive: false }
-    );
-
-    button.addEventListener("pointerup", event => {
-      event.preventDefault();
-      logNavDebug(`${id}: pointerup`);
-      runHomeNavAction(action);
-    });
-  });
 }
 
 function loadWrongLogs() {
@@ -2748,8 +2624,6 @@ function checkAnswer() {
   setTimeout(nextQuestionOrEnd, isCorrect ? WAIT_OK : WAIT_NG);
 }
 
-initNavDebugPanel();
-bindHomeNavigationButtons();
 updateStatsDashboard();
 renderDataLoadStatus();
 updateBirthdayRangeLabels(false);
