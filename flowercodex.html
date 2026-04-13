@@ -312,6 +312,25 @@ input:focus, select:focus {
   line-height: 1.4;
 }
 
+.nav-debug {
+  display: none;
+  position: fixed;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  z-index: 9999;
+  padding: 8px 10px;
+  border: 1px solid #3f5464;
+  border-radius: 10px;
+  background: rgba(24, 31, 37, 0.92);
+  color: #eaf1ff;
+  font-size: 12px;
+  line-height: 1.35;
+  text-align: left;
+  white-space: pre-wrap;
+  pointer-events: none;
+}
+
 .quiz-hint {
   min-height: 24px;
   margin: 8px 0 12px;
@@ -779,7 +798,7 @@ input:focus, select:focus {
             <p class="home-kicker">BLOOM LEARNING STUDIO</p>
             <h1>🌸 花学習アプリ</h1>
             <p id="homeFlowHint" class="home-flow-hint">今日のおすすめからすぐ学習を始められます。</p>
-            <button id="quickActionBtn" class="btn-primary">
+            <button id="quickActionBtn" class="btn-primary" onclick="startRecommendedFlow()">
               <span class="btn-main">🌱 まずは季節別で始める</span>
               <span class="btn-sub">10問ずつ、無理なくスタート</span>
             </button>
@@ -788,15 +807,15 @@ input:focus, select:focus {
 
         <div class="home-learn-block">
           <p class="menu-label">LEARN</p>
-          <button id="homeOrderBtn" class="menu-btn">
+          <button id="homeOrderBtn" class="menu-btn" onclick="showOrderRangeScreen()">
             <span class="btn-main">🔢 全順番学習</span>
             <span class="btn-sub">図鑑の番号順で積み上げ学習</span>
           </button>
-          <button id="homeSeasonBtn" class="menu-btn">
+          <button id="homeSeasonBtn" class="menu-btn" onclick="showSeasonSelectScreen()">
             <span class="btn-main">🌸 季節別学習</span>
             <span class="btn-sub">季節ごとに10問コースでテンポよく学習</span>
           </button>
-          <button id="homeRandomBtn" class="menu-btn">
+          <button id="homeRandomBtn" class="menu-btn" onclick="showRandomRangeScreen()">
             <span class="btn-main">🎲 ランダム学習</span>
             <span class="btn-sub">出題範囲を選んでランダム挑戦</span>
           </button>
@@ -804,7 +823,7 @@ input:focus, select:focus {
 
         <div class="home-lookup-block">
           <p class="menu-label">LOOKUP</p>
-          <button id="homeLookupBtn" class="menu-btn">
+          <button id="homeLookupBtn" class="menu-btn" onclick="showEncyclopedia()">
             <span class="btn-main">📖 図鑑</span>
             <span class="btn-sub">花の情報を検索して確認</span>
           </button>
@@ -835,6 +854,8 @@ input:focus, select:focus {
       </div>
     </div>
   </div>
+
+  <div id="navDebugPanel" class="nav-debug"></div>
 
   <!-- 図鑑画面 -->
   <div id="encyclopediaScreen" class="screen">
@@ -1531,13 +1552,67 @@ function startRecommendedFlow() {
 }
 
 let lastHomeNavActionAt = 0;
+let navDebugEnabled = false;
+let navDebugLines = [];
+let navDebugInitialized = false;
+
+function logNavDebug(message) {
+  if (!navDebugEnabled) return;
+  const panel = document.getElementById("navDebugPanel");
+  if (!panel) return;
+
+  const now = new Date();
+  const hh = String(now.getHours()).padStart(2, "0");
+  const mm = String(now.getMinutes()).padStart(2, "0");
+  const ss = String(now.getSeconds()).padStart(2, "0");
+  navDebugLines.push(`${hh}:${mm}:${ss} ${message}`);
+  if (navDebugLines.length > 7) {
+    navDebugLines = navDebugLines.slice(-7);
+  }
+  panel.textContent = navDebugLines.join("\n");
+}
+
+function initNavDebugPanel() {
+  const panel = document.getElementById("navDebugPanel");
+  navDebugEnabled = /(?:\?|&)dbg=1(?:&|$)/.test(String(window.location.search || ""));
+
+  if (!panel) return;
+  panel.style.display = navDebugEnabled ? "block" : "none";
+  if (!navDebugEnabled || navDebugInitialized) return;
+
+  navDebugInitialized = true;
+  logNavDebug("debug on");
+
+  window.addEventListener("error", event => {
+    const msg = event && event.message ? event.message : "unknown error";
+    logNavDebug(`error: ${msg}`);
+  });
+
+  window.addEventListener("unhandledrejection", event => {
+    const reason = event && event.reason ? String(event.reason) : "promise rejection";
+    logNavDebug(`promise: ${reason}`);
+  });
+}
 
 function runHomeNavAction(action) {
-  if (typeof action !== "function") return;
+  if (typeof action !== "function") {
+    logNavDebug("action missing");
+    return;
+  }
   const now = Date.now();
-  if (now - lastHomeNavActionAt < 280) return;
+  if (now - lastHomeNavActionAt < 280) {
+    logNavDebug("tap skipped");
+    return;
+  }
   lastHomeNavActionAt = now;
-  action();
+  try {
+    logNavDebug(`run ${action.name || "anonymous"}`);
+    action();
+  } catch (error) {
+    const errorText = error && error.message ? error.message : String(error);
+    logNavDebug(`fail ${errorText}`);
+    throw error;
+  }
 }
 
 function bindHomeNavigationButtons() {
@@ -1556,6 +1631,7 @@ function bindHomeNavigationButtons() {
 
     button.addEventListener("click", event => {
       event.preventDefault();
+      logNavDebug(`${id}: click`);
       runHomeNavAction(action);
     });
 
@@ -1564,10 +1640,17 @@ function bindHomeNavigationButtons() {
       "touchend",
       event => {
         event.preventDefault();
+        logNavDebug(`${id}: touchend`);
         runHomeNavAction(action);
       },
       { passive: false }
     );
+
+    button.addEventListener("pointerup", event => {
+      event.preventDefault();
+      logNavDebug(`${id}: pointerup`);
+      runHomeNavAction(action);
+    });
   });
 }
 
@@ -2665,6 +2748,7 @@ function checkAnswer() {
   setTimeout(nextQuestionOrEnd, isCorrect ? WAIT_OK : WAIT_NG);
 }
 
+initNavDebugPanel();
 bindHomeNavigationButtons();
 updateStatsDashboard();
 renderDataLoadStatus();
