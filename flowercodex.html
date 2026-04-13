@@ -84,6 +84,8 @@ button {
   margin: 8px 0;
   font-size: 16px;
   cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(47, 143, 100, 0.16);
   border: 1px solid var(--line);
   color: var(--ink);
   background: linear-gradient(180deg, #ffffff, #f9fbfd);
@@ -777,7 +779,7 @@ input:focus, select:focus {
             <p class="home-kicker">BLOOM LEARNING STUDIO</p>
             <h1>🌸 花学習アプリ</h1>
             <p id="homeFlowHint" class="home-flow-hint">今日のおすすめからすぐ学習を始められます。</p>
-            <button id="quickActionBtn" class="btn-primary" onclick="startRecommendedFlow()">
+            <button id="quickActionBtn" class="btn-primary">
               <span class="btn-main">🌱 まずは季節別で始める</span>
               <span class="btn-sub">10問ずつ、無理なくスタート</span>
             </button>
@@ -786,15 +788,15 @@ input:focus, select:focus {
 
         <div class="home-learn-block">
           <p class="menu-label">LEARN</p>
-          <button class="menu-btn" onclick="showOrderRangeScreen()">
+          <button id="homeOrderBtn" class="menu-btn">
             <span class="btn-main">🔢 全順番学習</span>
             <span class="btn-sub">図鑑の番号順で積み上げ学習</span>
           </button>
-          <button class="menu-btn" onclick="showSeasonSelectScreen()">
+          <button id="homeSeasonBtn" class="menu-btn">
             <span class="btn-main">🌸 季節別学習</span>
             <span class="btn-sub">季節ごとに10問コースでテンポよく学習</span>
           </button>
-          <button class="menu-btn" onclick="showRandomRangeScreen()">
+          <button id="homeRandomBtn" class="menu-btn">
             <span class="btn-main">🎲 ランダム学習</span>
             <span class="btn-sub">出題範囲を選んでランダム挑戦</span>
           </button>
@@ -802,7 +804,7 @@ input:focus, select:focus {
 
         <div class="home-lookup-block">
           <p class="menu-label">LOOKUP</p>
-          <button class="menu-btn" onclick="showEncyclopedia()">
+          <button id="homeLookupBtn" class="menu-btn">
             <span class="btn-main">📖 図鑑</span>
             <span class="btn-sub">花の情報を検索して確認</span>
           </button>
@@ -1526,6 +1528,47 @@ function startRecommendedFlow() {
   }
 
   showSeasonSelectScreen();
+}
+
+let lastHomeNavActionAt = 0;
+
+function runHomeNavAction(action) {
+  if (typeof action !== "function") return;
+  const now = Date.now();
+  if (now - lastHomeNavActionAt < 280) return;
+  lastHomeNavActionAt = now;
+  action();
+}
+
+function bindHomeNavigationButtons() {
+  const bindings = [
+    ["quickActionBtn", startRecommendedFlow],
+    ["homeOrderBtn", showOrderRangeScreen],
+    ["homeSeasonBtn", showSeasonSelectScreen],
+    ["homeRandomBtn", showRandomRangeScreen],
+    ["homeLookupBtn", showEncyclopedia]
+  ];
+
+  bindings.forEach(([id, action]) => {
+    const button = document.getElementById(id);
+    if (!button || button.dataset.boundNav === "1") return;
+    button.dataset.boundNav = "1";
+
+    button.addEventListener("click", event => {
+      event.preventDefault();
+      runHomeNavAction(action);
+    });
+
+    // iOSでclickが取りこぼされるケース向けの保険
+    button.addEventListener(
+      "touchend",
+      event => {
+        event.preventDefault();
+        runHomeNavAction(action);
+      },
+      { passive: false }
+    );
+  });
 }
 
 function loadWrongLogs() {
@@ -2622,6 +2665,7 @@ function checkAnswer() {
   setTimeout(nextQuestionOrEnd, isCorrect ? WAIT_OK : WAIT_NG);
 }
 
+bindHomeNavigationButtons();
 updateStatsDashboard();
 renderDataLoadStatus();
 updateBirthdayRangeLabels(false);

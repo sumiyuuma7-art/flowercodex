@@ -1,0 +1,81 @@
+id,name,yomi,meanings,meaningsYomi,seasons,regions,image,factsKeys
+1,バラ,ばら,愛|情熱,あい|じょうねつ,春,北半球の熱帯～亜熱帯,https://images.unsplash.com/photo-1621832990437-02599ece5c80?auto=format&fit=crop&w=900&q=80,薔薇|ローズ
+2,ひまわり,ヒマワリ,憧れ|情熱,あこがれ|じょうねつ,夏,北アメリカ,https://images.unsplash.com/photo-1594616647927-2382fe456b07?auto=format&fit=crop&w=900&q=80,向日葵|サンフラワー
+3,桜,さくら,精神美|優雅,せいしんび|ゆうが,春,ヒマラヤ,https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&fit=crop&w=900&q=80,染井吉野|ソメイヨシノ|サクラ
+4,アネモネ,あねもね,はかない恋|恋の苦しみ,はかないこい|こいのくるしみ,春,地中海沿岸,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+5,イチジク,いちじく,実りある恋,みのりあるこい,春,アラビア,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+6,カスミソウ,かすみそう,清らかな心|純潔,きよらかなこころ|じゅんけつ,春,イラン,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+7,クジャクアスター,くじゃくあすたー,飾り気のない人|追憶,かざりけのないひと|ついおく,春,北米,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+8,シュッコンカスミソウ,しゅっこんかすみそう,魅力を引き出す,みりょくをひきだす,春,地中海|中央アジア|シベリア,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+9,シロツメクサ,しろつめくさ,幸運|私を思って,こううん|わたしをおもって,春,ヨーロッパ,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+10,ナルシッサス・オドルス,なるしっさす・おどるす,希望,きぼう,春,交雑種（スペイン）,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+11,ミヤコワスレ,みやこわすれ,しばしの別れ,しばしのわかれ,春,園芸品種（日本）,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+12,ワスレナグサ,わすれなぐさ,真実の愛|私を忘れないで,しんじつのあい|わたしをわすれないで,春,ヨーロッパ,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+13,カーネーション,かーねーしょん,深い愛,ふかいあい,春,南欧|地中海沿岸,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,Carnation|オランダナデシコ
+14,ガーベラ,がーべら,希望|感謝,きぼう|かんしゃ,秋,南アフリカ,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,Gerbera
+15,ラベンダー,らべんだー,沈黙|期待,ちんもく|きたい,冬,地中海沿岸|北アフリカ,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,Lavender|フレンチラベンダー
+16,アジサイ,あじさい,家族団らん|辛抱強い愛,かぞくだんらん|しんぼうづよいあい,夏,日本,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,紫陽花|ハイドランジア
+17,コスモス,こすもす,秩序|調和,ちつじょ|ちょうわ,秋,メキシコ,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,秋桜|Cosmos
+18,キキョウ,ききょう,変わらぬ愛,かわらぬあい,秋,日本|シベリア|中国,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,桔梗|Balloon flower
+19,マリーゴールド,まりーごーるど,いつもそばに置いて|逆境を乗り越えて生きる,いつもそばにおいて|ぎゃっきょうをのりこえていきる,夏,メキシコ,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,フレンチマリーゴールド|Tagetes patula
+20,ダリア,だりあ,華麗|優雅,かれい|ゆうが,夏|秋,メキシコ|ガテマラ,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,Dahlia|天竺牡丹
+21,チューリップ,ちゅーりっぷ,名声|愛の告白,めいせい|あいのこくはく,春,トルコ|イラン|アフガニスタン,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,Tulip|ツーリップ
+22,スイセン,すいせん,自己愛|希望,じこあい|きぼう,冬|春,欧州南部|地中海沿岸,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,ナルシッサス|Narcissus
+23,ユリ,ゆり,純潔|威厳,じゅんけつ|いげん,夏,北半球,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,百合|Lily
+24,スズラン,すずらん,再び幸せが訪れる,ふたたびしあわせがおとずれる,春,ヨーロッパ|中央アジア,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,ドイツスズラン|ミュゲ|Lily of the valley
+25,ツバキ,つばき,控えめな美徳|純粋,ひかえめなびとく|じゅんすい,冬,日本,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,椿|Camellia
+26,ボタン,ぼたん,高貴|風格,こうき|ふうかく,春,中国,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,牡丹|Peony
+27,シャクヤク,しゃくやく,清浄|恥じらい,せいじょう|はじらい,春,チベット|朝鮮半島,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,芍薬|Paeonia
+28,キク,きく,高貴|あなたを愛しています,こうき|あなたをあいしています,秋,中国|アメリカ,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,菊|Chrysanthemum
+29,ウメ,うめ,高潔|不屈の精神,こうけつ|ふくつのせいしん,冬|春,中国,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,梅|Japanese apricot|Prunus mume
+30,モモ,もも,チャーミング|あなたに夢中,ちゃーみんぐ|あなたにむちゅう,春,中国|ペルシア,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,桃|Peach
+31,フジ,ふじ,歓迎|優しさ,かんげい|やさしさ,春,日本,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,藤|Wisteria
+32,ハス,はす,清らかな心|雄弁,きよらかなこころ|ゆうべん,夏,インド,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,蓮|Lotus
+33,スミレ,すみれ,謙虚|誠実,けんきょ|せいじつ,春,日本|朝鮮半島|中国,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,菫|Viola
+34,シクラメン,しくらめん,はにかみ|遠慮,はにかみ|えんりょ,冬,地中海沿岸,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,Cyclamen|篝火花
+35,サザンカ,さざんか,ひたむきな愛,ひたむきなあい,冬,日本固有種,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,山茶花|Camellia sasanqua
+36,キンモクセイ,きんもくせい,謙虚|気高い人,けんきょ|けだかいひと,秋,中国南部,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,金木犀|Osmanthus
+37,リンドウ,りんどう,勝利|正義感,しょうり|せいぎかん,秋,日本|朝鮮半島|中国,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,竜胆|Gentiana
+38,ホタルブクロ,ほたるぶくろ,正義|忠実,せいぎ|ちゅうじつ,夏,日本|朝鮮半島|中国|シベリア,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,蛍袋|Campanula punctata
+39,スイートピー,すいーとぴー,門出|優しい思い出,かどで|やさしいおもいで,春,シシリー島（イタリア）,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,Sweet pea|香豌豆
+40,ハイビスカス,はいびすかす,繊細な美|華やか,せんさいなび|はなやか,夏,ハワイ諸島|マスカリン諸島,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,Hibiscus|ブッソウゲ
+41,バイモユリ,ばいもゆり,威厳|才能,いげん|さいのう,春,中国,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+42,カタクリ,かたくり,初恋|寂しさ,はつこい|さびしさ,春,日本|朝鮮半島|中国,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+43,オオイヌノフグリ,おおいぬのふぐり,忠実|信頼,ちゅうじつ|しんらい,春,ヨーロッパ,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+44,ネモフィラ,ねもふぃら,可憐|成功,かれん|せいこう,春,北アメリカ,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+45,ルピナス,るぴなす,想像力|いつも幸せ,そうぞうりょく|いつもしあわせ,春|夏,北アメリカ|地中海沿岸,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+46,アヤメ,あやめ,良い便り|優雅,よいたより|ゆうが,春,日本|中国,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+47,ハナミズキ,はなみずき,返礼|私の思いを受けてください,へんれい|わたしのおもいをうけてください,春,北アメリカ,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+48,ドクダミ,どくだみ,野生|白い追憶,やせい|しろいついおく,夏,東アジア,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+49,ノウゼンカズラ,のうぜんかずら,栄光|名声,えいこう|めいせい,夏,中国,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+50,オミナエシ,おみなえし,親切|美人,しんせつ|びじん,秋,日本|中国,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+51,ヒガンバナ,ひがんばな,情熱|悲しい思い出,じょうねつ|かなしいおもいで,秋,中国,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+52,ケイトウ,けいとう,おしゃれ|風変わり,おしゃれ|ふうがわり,夏|秋,インド|熱帯アジア,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+53,サルビア,さるびあ,家族愛|燃ゆる思い,かぞくあい|もゆるおもい,夏|秋,ブラジル|南米,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+54,コチョウラン,こちょうらん,幸福が飛んでくる|純粋な愛,こうふくがとんでくる|じゅんすいなあい,冬|春,東南アジア,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+55,オンシジウム,おんしじうむ,可憐|一緒に踊って,かれん|いっしょにおどって,冬|春,中南米,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+56,デンドロビウム,でんどろびうむ,わがままな美人|魅惑,わがままなびじん|みわく,冬|春,東南アジア|オセアニア,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+57,シンビジウム,しんびじうむ,華やかな恋|高貴な美人,はなやかなこい|こうきなびじん,冬|春,東南アジア,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+58,プリムラ,ぷりむら,青春のはじまりと悲しみ|運命を開く,せいしゅんのはじまりとかなしみ|うんめいをひらく,冬|春,ヨーロッパ,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+59,マトリカリア,まとりかりあ,集う喜び|忍耐,つどうよろこび|にんたい,春,バルカン半島,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+60,ストック,すとっく,永遠の美|愛の絆,えいえんのび|あいのきずな,冬|春,南ヨーロッパ,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+61,カンパニュラ,かんぱにゅら,感謝|誠実,かんしゃ|せいじつ,春|夏,南ヨーロッパ,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+62,ペチュニア,ぺちゅにあ,心の安らぎ|あなたと一緒なら心が和らぐ,こころのやすらぎ|あなたといっしょならこころがやわらぐ,春|夏,南アメリカ,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+63,ニチニチソウ,にちにちそう,楽しい思い出|友情,たのしいおもいで|ゆうじょう,夏,マダガスカル,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+64,インパチェンス,いんぱちぇんす,鮮やかな人|強い個性,あざやかなひと|つよいこせい,夏,東アフリカ,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+65,ベゴニア,べごにあ,幸福な日々|親切,こうふくなひび|しんせつ,春|夏,熱帯アジア|中南米,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+66,クレマチス,くれまちす,精神の美|旅人の喜び,せいしんのび|たびびとのよろこび,春|夏,ヨーロッパ|中国,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+67,ブルースター,ぶるーすたー,信じ合う心|幸福な愛,しんじあうこころ|こうふくなあい,春|夏,南アメリカ,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+68,アルストロメリア,あるすとろめりあ,持続|未来への憧れ,じぞく|みらいへのあこがれ,春|夏,南アメリカ,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+69,トルコキキョウ,とるこききょう,優美|希望,ゆうび|きぼう,夏|秋,北アメリカ,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+70,エキナセア,えきなせあ,優しさ|深い愛,やさしさ|ふかいあい,夏|秋,北アメリカ,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+71,ジニア,じにあ,不在の友を思う|絆,ふざいのともをおもう|きずな,夏|秋,メキシコ,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+72,ポピー,ぽぴー,思いやり|いたわり,おもいやり|いたわり,春,ヨーロッパ|西アジア,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+73,フリージア,ふりーじあ,親愛の情|感謝,しんあいのじょう|かんしゃ,冬|春,南アフリカ,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+74,ムスカリ,むすかり,明るい未来|寛大な愛,あかるいみらい|かんだいなあい,春,地中海沿岸,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+75,ヒヤシンス,ひやしんす,スポーツ|控えめな愛,すぽーつ|ひかえめなあい,春,地中海沿岸|西アジア,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+76,クロッカス,くろっかす,青春の喜び|切望,せいしゅんのよろこび|せつぼう,春,地中海沿岸,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+77,スノードロップ,すのーどろっぷ,希望|慰め,きぼう|なぐさめ,冬|春,ヨーロッパ,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+78,クリスマスローズ,くりすますろーず,追憶|私を忘れないで,ついおく|わたしをわすれないで,冬|春,ヨーロッパ|西アジア,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+79,ヘリオトロープ,へりおとろーぷ,献身的な愛|夢中,けんしんてきなあい|むちゅう,夏,ペルー|エクアドル,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
+80,オシロイバナ,おしろいばな,臆病|内気,おくびょう|うちき,夏|秋,中南アメリカ,https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80,
