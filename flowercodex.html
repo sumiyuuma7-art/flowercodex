@@ -948,11 +948,7 @@ input:focus, select:focus {
     <button onclick="goHome()">← 戻る</button>
 
     <p style="font-weight:bold;">範囲を選んでください</p>
-
-    <button onclick="startRandomWithRange('all')">全範囲</button>
-    <button onclick="startRandomWithRange('1-20')">No.1〜20</button>
-    <button onclick="startRandomWithRange('21-40')">No.21〜40</button>
-    <button onclick="startRandomWithRange('41-60')">No.41〜60</button>
+    <div id="randomRangeButtons"></div>
   </div>
 
   <!-- 季節選択画面 -->
@@ -1637,9 +1633,8 @@ function getPendingModeDescription(mode) {
 
 function getRandomRangeLabel(range) {
   if (range === "all") return "全範囲";
-  if (range === "1-20") return "No.1〜20";
-  if (range === "21-40") return "No.21〜40";
-  if (range === "41-60") return "No.41〜60";
+  const parsed = parseRangeValue(range);
+  if (parsed) return `No.${parsed.start}〜${parsed.end}`;
   return range || "ランダム";
 }
 
@@ -1927,6 +1922,7 @@ let currentChoiceAnswer = "";
 let questionLocked = false;
 
 const ORDER_BLOCK_SIZE = 10;
+const RANDOM_BLOCK_SIZE = 20;
 const WAIT_OK = 1000;     // 正解: 短め
 const WAIT_NG = 2100;     // 不正解: 少し長め
 function startQuiz(mode) {
@@ -2219,6 +2215,19 @@ function getMaxFlowerId() {
   return flowers.reduce((max, flower) => Math.max(max, Number(flower.id) || 0), 0);
 }
 
+function parseRangeValue(range) {
+  const matched = String(range || "").match(/^(\d+)-(\d+)$/);
+  if (!matched) return null;
+
+  const start = Number(matched[1]);
+  const end = Number(matched[2]);
+  if (!Number.isFinite(start) || !Number.isFinite(end) || start > end) {
+    return null;
+  }
+
+  return { start, end };
+}
+
 function buildOrderRanges() {
   const maxId = getMaxFlowerId();
   const ranges = [];
@@ -2249,6 +2258,43 @@ function renderOrderRangeButtons() {
     const btn = document.createElement("button");
     btn.textContent = `No.${range.start}〜${range.end}（${range.count}問）`;
     btn.onclick = () => startOrderWithRange(range.start, range.end);
+    container.appendChild(btn);
+  });
+}
+
+function buildRandomRanges() {
+  const maxId = getMaxFlowerId();
+  const ranges = [];
+
+  for (let start = 1; start <= maxId; start += RANDOM_BLOCK_SIZE) {
+    const end = Math.min(start + RANDOM_BLOCK_SIZE - 1, maxId);
+    const count = flowers.filter(f => {
+      const id = Number(f.id);
+      return Number.isFinite(id) && id >= start && id <= end;
+    }).length;
+    if (count === 0) continue;
+    ranges.push({ start, end, count });
+  }
+
+  return ranges;
+}
+
+function renderRandomRangeButtons() {
+  const container = document.getElementById("randomRangeButtons");
+  if (!container) return;
+
+  const ranges = buildRandomRanges();
+  container.innerHTML = "";
+
+  const allBtn = document.createElement("button");
+  allBtn.textContent = `全範囲（${flowers.length}問）`;
+  allBtn.onclick = () => startRandomWithRange("all");
+  container.appendChild(allBtn);
+
+  ranges.forEach(range => {
+    const btn = document.createElement("button");
+    btn.textContent = `No.${range.start}〜${range.end}（${range.count}問）`;
+    btn.onclick = () => startRandomWithRange(`${range.start}-${range.end}`);
     container.appendChild(btn);
   });
 }
@@ -2302,6 +2348,7 @@ function startQuizWithType(type) {
 function showRandomRangeScreen() {
   hideAll();
   document.getElementById("randomRangeScreen").style.display = "block";
+  renderRandomRangeButtons();
 }
 
 function buildWeakFlowerList(limit = WEAK_QUIZ_LIMIT) {
@@ -2392,12 +2439,14 @@ function startRandomWithRange(range, skipTypeSelect = false) {
 
   if (range === "all") {
     filtered = [...flowers];
-  } else if (range === "1-20") {
-    filtered = flowers.filter(f => f.id >= 1 && f.id <= 20);
-  } else if (range === "21-40") {
-    filtered = flowers.filter(f => f.id >= 21 && f.id <= 40);
-  } else if (range === "41-60") {
-    filtered = flowers.filter(f => f.id >= 41 && f.id <= 60);
+  } else {
+    const parsed = parseRangeValue(range);
+    if (parsed) {
+      filtered = flowers.filter(f => {
+        const id = Number(f.id);
+        return Number.isFinite(id) && id >= parsed.start && id <= parsed.end;
+      });
+    }
   }
 
   // シャッフル
