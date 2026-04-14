@@ -996,7 +996,7 @@ const fallbackFlowers = [
     meaningsYomi: ["あい", "じょうねつ"],
     seasons: ["春"],
     regions: ["ヨーロッパ"],
-    image: "https://images.unsplash.com/photo-1621832990437-02599ece5c80?auto=format&fit=crop&w=900&q=80"
+    image: ""
   },
   {
     id: 2,
@@ -1006,7 +1006,7 @@ const fallbackFlowers = [
     meaningsYomi: ["あこがれ", "じょうねつ"],
     seasons: ["夏"],
     regions: ["北アメリカ"],
-    image: "https://images.unsplash.com/photo-1594616647927-2382fe456b07?auto=format&fit=crop&w=900&q=80"
+    image: ""
   },
   {
     id: 3,
@@ -1024,7 +1024,7 @@ const fallbackFlowers = [
     ],
     seasons: ["春"],
     regions: ["日本"],
-    image: "https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&fit=crop&w=900&q=80"
+    image: ""
   }
 ];
 
@@ -1074,6 +1074,31 @@ function escapeAttr(value) {
     .replace(/>/g, "&gt;");
 }
 
+function isAllowedExternalImageUrl(url) {
+  const value = String(url || "").trim();
+  if (!value) return false;
+
+  const lower = value.toLowerCase();
+  if (lower.startsWith("https://images.pexels.com/")) return true;
+  if (lower.startsWith("https://www.pexels.com/")) return true;
+  return false;
+}
+
+function isAllowedImageSource(src) {
+  const value = String(src || "").trim();
+  if (!value) return false;
+
+  const lower = value.toLowerCase();
+  if (lower.startsWith("data:") || lower.startsWith("blob:")) return true;
+
+  if (/^https?:\/\//i.test(value)) {
+    return isAllowedExternalImageUrl(value);
+  }
+
+  // Relative/local paths are allowed (e.g. images/flowers/*.jpg)
+  return true;
+}
+
 function resolveFlowerImage(flower) {
   const idKey =
     flower && flower.id !== undefined && flower.id !== null
@@ -1083,12 +1108,14 @@ function resolveFlowerImage(flower) {
     typeof imageOverrides[idKey] === "string"
       ? imageOverrides[idKey].trim()
       : "";
-  if (override) return override;
+  if (override && isAllowedImageSource(override)) return override;
 
   const source = flower && typeof flower.image === "string"
     ? flower.image.trim()
     : "";
-  return source || IMAGE_FALLBACK_DATA_URI;
+  if (source && isAllowedImageSource(source)) return source;
+
+  return IMAGE_FALLBACK_DATA_URI;
 }
 
 function handleImageError(imgEl) {

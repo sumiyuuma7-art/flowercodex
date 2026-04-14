@@ -130,6 +130,35 @@ if ($sizeKb -gt 120) {
   $warnings.Add(("File size is {0}KB. Consider splitting HTML/CSS/JS later for safety." -f $sizeKb)) | Out-Null
 }
 
+# 5) External image policy check (Pexels-only for external URLs)
+function Test-ExternalImagePolicy {
+  param(
+    [string]$TargetPath,
+    [string]$TargetText
+  )
+
+  $matches = [regex]::Matches(
+    $TargetText,
+    '"image"\s*:\s*"(?<url>https?://[^"]+)"',
+    [System.Text.RegularExpressions.RegexOptions]::IgnoreCase
+  )
+
+  foreach ($m in $matches) {
+    $url = $m.Groups["url"].Value
+    $allowed = $url -match '^https://images\.pexels\.com/' -or $url -match '^https://www\.pexels\.com/'
+    if (-not $allowed) {
+      Add-Issue -Issues $issues -Message ("Disallowed external image URL in {0}: {1}" -f $TargetPath, $url)
+    }
+  }
+}
+
+Test-ExternalImagePolicy -TargetPath $FilePath -TargetText $text
+$flowersJsPath = Join-Path $projectRoot "data/flowers.js"
+if (Test-Path -LiteralPath $flowersJsPath) {
+  $flowersJsText = [System.IO.File]::ReadAllText($flowersJsPath, [System.Text.Encoding]::UTF8)
+  Test-ExternalImagePolicy -TargetPath $flowersJsPath -TargetText $flowersJsText
+}
+
 if ($issues.Count -gt 0) {
   Write-Host "flowercodex check: FAILED" -ForegroundColor Red
   Write-Host ("Target: {0}" -f $FilePath)
