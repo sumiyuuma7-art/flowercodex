@@ -3439,5 +3439,1168 @@
                               "retrievedDate":  "2026-04-14"
                           }
                       ]
+    },
+    {
+        "id":  121,
+        "name":  "エリンジウム",
+        "yomi":  "えりんじうむ",
+        "meanings":  [
+                         "秘めた愛",
+                         "光を求める"
+                     ],
+        "meaningsYomi":  [
+                             "ひめたあい",
+                             "ひかりをもとめる"
+                         ],
+        "seasons":  [
+                        "夏",
+                        "秋"
+                    ],
+        "regions":  [
+                        "ヨーロッパ",
+                        "地中海沿岸"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  7,
+                              "day":  9,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  122,
+        "name":  "アスチルベ",
+        "yomi":  "あすちるべ",
+        "meanings":  [
+                         "恋の訪れ",
+                         "自由"
+                     ],
+        "meaningsYomi":  [
+                             "こいのおとずれ",
+                             "じゆう"
+                         ],
+        "seasons":  [
+                        "春",
+                        "夏"
+                    ],
+        "regions":  [
+                        "東アジア",
+                        "北アメリカ"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  4,
+                              "day":  10,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  123,
+        "name":  "ペンタス",
+        "yomi":  "ぺんたす",
+        "meanings":  [
+                         "願い事",
+                         "希望がかなう"
+                     ],
+        "meaningsYomi":  [
+                             "ねがいごと",
+                             "きぼうがかなう"
+                         ],
+        "seasons":  [
+                        "夏",
+                        "秋"
+                    ],
+        "regions":  [
+                        "東アフリカ",
+                        "アラビア半島"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  7,
+                              "day":  11,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  124,
+        "name":  "クフェア",
+        "yomi":  "くふぇあ",
+        "meanings":  [
+                         "自由気まま",
+                         "見事"
+                     ],
+        "meaningsYomi":  [
+                             "じゆうきまま",
+                             "みごと"
+                         ],
+        "seasons":  [
+                        "夏",
+                        "秋"
+                    ],
+        "regions":  [
+                        "メキシコ",
+                        "中南米"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  7,
+                              "day":  12,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  125,
+        "name":  "シバザクラ",
+        "yomi":  "しばざくら",
+        "meanings":  [
+                         "合意",
+                         "一致"
+                     ],
+        "meaningsYomi":  [
+                             "ごうい",
+                             "いっち"
+                         ],
+        "seasons":  [
+                        "春"
+                    ],
+        "regions":  [
+                        "北アメリカ"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  4,
+                              "day":  13,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  126,
+        "name":  "フクジュソウ",
+        "yomi":  "ふくじゅそう",
+        "meanings":  [
+                         "幸せを招く",
+                         "永久の幸福"
+                     ],
+        "meaningsYomi":  [
+                             "しあわせをまねく",
+                             "えいきゅうのこうふく"
+                         ],
+        "seasons":  [
+                        "冬",
+                        "春"
+                    ],
+        "regions":  [
+                        "日本",
+                        "中国"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  1,
+                              "day":  14,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  127,
+        "name":  "ミモザ",
+        "yomi":  "みもざ",
+        "meanings":  [
+                         "感謝",
+                         "友情"
+                     ],
+        "meaningsYomi":  [
+                             "かんしゃ",
+                             "ゆうじょう"
+                         ],
+        "seasons":  [
+                        "春"
+                    ],
+        "regions":  [
+                        "オーストラリア"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  4,
+                              "day":  15,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  128,
+        "name":  "ブルーサルビア",
+        "yomi":  "ぶるーさるびあ",
+        "meanings":  [
+                         "尊重",
+                         "知恵"
+                     ],
+        "meaningsYomi":  [
+                             "そんちょう",
+                             "ちえ"
+                         ],
+        "seasons":  [
+                        "夏",
+                        "秋"
+                    ],
+        "regions":  [
+                        "ブラジル",
+                        "南アメリカ"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  7,
+                              "day":  16,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  129,
+        "name":  "コルチカム",
+        "yomi":  "こるちかむ",
+        "meanings":  [
+                         "華美",
+                         "永続"
+                     ],
+        "meaningsYomi":  [
+                             "かび",
+                             "えいぞく"
+                         ],
+        "seasons":  [
+                        "秋"
+                    ],
+        "regions":  [
+                        "ヨーロッパ",
+                        "地中海沿岸"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  10,
+                              "day":  17,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  130,
+        "name":  "ヒメジョオン",
+        "yomi":  "ひめじょおん",
+        "meanings":  [
+                         "素朴で清楚",
+                         "遠くから見守る"
+                     ],
+        "meaningsYomi":  [
+                             "そぼくでせいそ",
+                             "とおくからみまもる"
+                         ],
+        "seasons":  [
+                        "春",
+                        "夏"
+                    ],
+        "regions":  [
+                        "北アメリカ"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  4,
+                              "day":  18,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  131,
+        "name":  "ミニバラ",
+        "yomi":  "みにばら",
+        "meanings":  [
+                         "無意識の美",
+                         "特別な功績"
+                     ],
+        "meaningsYomi":  [
+                             "むいしきのび",
+                             "とくべつなこうせき"
+                         ],
+        "seasons":  [
+                        "春",
+                        "秋"
+                    ],
+        "regions":  [
+                        "ヨーロッパ"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  4,
+                              "day":  19,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  132,
+        "name":  "モクレン",
+        "yomi":  "もくれん",
+        "meanings":  [
+                         "自然への愛",
+                         "崇高"
+                     ],
+        "meaningsYomi":  [
+                             "しぜんへのあい",
+                             "すうこう"
+                         ],
+        "seasons":  [
+                        "春"
+                    ],
+        "regions":  [
+                        "中国"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  4,
+                              "day":  20,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  133,
+        "name":  "ハマナス",
+        "yomi":  "はまなす",
+        "meanings":  [
+                         "香り豊か",
+                         "照り映える容色"
+                     ],
+        "meaningsYomi":  [
+                             "かおりゆたか",
+                             "てりはえるようしょく"
+                         ],
+        "seasons":  [
+                        "夏"
+                    ],
+        "regions":  [
+                        "日本",
+                        "東アジア"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  7,
+                              "day":  21,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  134,
+        "name":  "カンナ",
+        "yomi":  "かんな",
+        "meanings":  [
+                         "情熱",
+                         "快活"
+                     ],
+        "meaningsYomi":  [
+                             "じょうねつ",
+                             "かいかつ"
+                         ],
+        "seasons":  [
+                        "夏"
+                    ],
+        "regions":  [
+                        "中南アメリカ"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  7,
+                              "day":  22,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  135,
+        "name":  "ベルガモット",
+        "yomi":  "べるがもっと",
+        "meanings":  [
+                         "安らぎ",
+                         "共感"
+                     ],
+        "meaningsYomi":  [
+                             "やすらぎ",
+                             "きょうかん"
+                         ],
+        "seasons":  [
+                        "夏"
+                    ],
+        "regions":  [
+                        "北アメリカ"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  7,
+                              "day":  23,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  136,
+        "name":  "ルドベキア",
+        "yomi":  "るどべきあ",
+        "meanings":  [
+                         "正義",
+                         "あなたを見つめる"
+                     ],
+        "meaningsYomi":  [
+                             "せいぎ",
+                             "あなたをみつめる"
+                         ],
+        "seasons":  [
+                        "夏",
+                        "秋"
+                    ],
+        "regions":  [
+                        "北アメリカ"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  7,
+                              "day":  24,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  137,
+        "name":  "サンタンカ",
+        "yomi":  "さんたんか",
+        "meanings":  [
+                         "喜び",
+                         "張り切る"
+                     ],
+        "meaningsYomi":  [
+                             "よろこび",
+                             "はりきる"
+                         ],
+        "seasons":  [
+                        "夏"
+                    ],
+        "regions":  [
+                        "熱帯アジア"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  7,
+                              "day":  25,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  138,
+        "name":  "ユキノシタ",
+        "yomi":  "ゆきのした",
+        "meanings":  [
+                         "深い愛情",
+                         "切実な愛情"
+                     ],
+        "meaningsYomi":  [
+                             "ふかいあいじょう",
+                             "せつじつなあいじょう"
+                         ],
+        "seasons":  [
+                        "春",
+                        "夏"
+                    ],
+        "regions":  [
+                        "日本",
+                        "中国"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  4,
+                              "day":  26,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  139,
+        "name":  "ノースポール",
+        "yomi":  "のーすぽーる",
+        "meanings":  [
+                         "誠実",
+                         "高潔"
+                     ],
+        "meaningsYomi":  [
+                             "せいじつ",
+                             "こうけつ"
+                         ],
+        "seasons":  [
+                        "冬",
+                        "春"
+                    ],
+        "regions":  [
+                        "地中海沿岸"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  1,
+                              "day":  27,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  140,
+        "name":  "バコパ",
+        "yomi":  "ばこぱ",
+        "meanings":  [
+                         "小さな強さ",
+                         "愛らしい"
+                     ],
+        "meaningsYomi":  [
+                             "ちいさなつよさ",
+                             "あいらしい"
+                         ],
+        "seasons":  [
+                        "春",
+                        "夏"
+                    ],
+        "regions":  [
+                        "南アフリカ"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  4,
+                              "day":  28,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  141,
+        "name":  "キンギョソウ",
+        "yomi":  "きんぎょそう",
+        "meanings":  [
+                         "おしゃべり",
+                         "でしゃばり"
+                     ],
+        "meaningsYomi":  [
+                             "おしゃべり",
+                             "でしゃばり"
+                         ],
+        "seasons":  [
+                        "春",
+                        "夏"
+                    ],
+        "regions":  [
+                        "地中海沿岸"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  4,
+                              "day":  1,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  142,
+        "name":  "ヤグルマギク",
+        "yomi":  "やぐるまぎく",
+        "meanings":  [
+                         "繊細",
+                         "優雅"
+                     ],
+        "meaningsYomi":  [
+                             "せんさい",
+                             "ゆうが"
+                         ],
+        "seasons":  [
+                        "春",
+                        "夏"
+                    ],
+        "regions":  [
+                        "ヨーロッパ"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  4,
+                              "day":  2,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  143,
+        "name":  "オステオスペルマム",
+        "yomi":  "おすておすぺるまむ",
+        "meanings":  [
+                         "元気",
+                         "無邪気"
+                     ],
+        "meaningsYomi":  [
+                             "げんき",
+                             "むじゃき"
+                         ],
+        "seasons":  [
+                        "春",
+                        "秋"
+                    ],
+        "regions":  [
+                        "南アフリカ"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  4,
+                              "day":  3,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  144,
+        "name":  "ヘリクリサム",
+        "yomi":  "へりくりさむ",
+        "meanings":  [
+                         "永遠の思い出",
+                         "献身"
+                     ],
+        "meaningsYomi":  [
+                             "えいえんのおもいで",
+                             "けんしん"
+                         ],
+        "seasons":  [
+                        "春",
+                        "夏"
+                    ],
+        "regions":  [
+                        "南アフリカ",
+                        "オーストラリア"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  4,
+                              "day":  4,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  145,
+        "name":  "ガザニア",
+        "yomi":  "がざにあ",
+        "meanings":  [
+                         "あなたを誇りに思う",
+                         "潔白"
+                     ],
+        "meaningsYomi":  [
+                             "あなたをほこりにおもう",
+                             "けっぱく"
+                         ],
+        "seasons":  [
+                        "春",
+                        "夏"
+                    ],
+        "regions":  [
+                        "南アフリカ"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  4,
+                              "day":  5,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  146,
+        "name":  "ペラルゴニウム",
+        "yomi":  "ぺらるごにうむ",
+        "meanings":  [
+                         "真実の愛情",
+                         "篤い信仰"
+                     ],
+        "meaningsYomi":  [
+                             "しんじつのあいじょう",
+                             "あついしんこう"
+                         ],
+        "seasons":  [
+                        "春",
+                        "夏"
+                    ],
+        "regions":  [
+                        "南アフリカ"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  4,
+                              "day":  6,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  147,
+        "name":  "アリッサム",
+        "yomi":  "ありっさむ",
+        "meanings":  [
+                         "優美",
+                         "飛躍"
+                     ],
+        "meaningsYomi":  [
+                             "ゆうび",
+                             "ひやく"
+                         ],
+        "seasons":  [
+                        "春",
+                        "秋"
+                    ],
+        "regions":  [
+                        "地中海沿岸"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  4,
+                              "day":  7,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  148,
+        "name":  "カスミアジサイ",
+        "yomi":  "かすみあじさい",
+        "meanings":  [
+                         "清らかな心",
+                         "寛容"
+                     ],
+        "meaningsYomi":  [
+                             "きよらかなこころ",
+                             "かんよう"
+                         ],
+        "seasons":  [
+                        "春",
+                        "夏"
+                    ],
+        "regions":  [
+                        "日本"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  4,
+                              "day":  8,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  149,
+        "name":  "モナルダ",
+        "yomi":  "もなるだ",
+        "meanings":  [
+                         "安らぎ",
+                         "燃える思い"
+                     ],
+        "meaningsYomi":  [
+                             "やすらぎ",
+                             "もえるおもい"
+                         ],
+        "seasons":  [
+                        "夏"
+                    ],
+        "regions":  [
+                        "北アメリカ"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  7,
+                              "day":  9,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  150,
+        "name":  "キバナコスモス",
+        "yomi":  "きばなこすもす",
+        "meanings":  [
+                         "野性的な美しさ",
+                         "幼い恋心"
+                     ],
+        "meaningsYomi":  [
+                             "やせいてきなうつくしさ",
+                             "おさないこいごころ"
+                         ],
+        "seasons":  [
+                        "夏",
+                        "秋"
+                    ],
+        "regions":  [
+                        "メキシコ"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  7,
+                              "day":  10,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  151,
+        "name":  "トケイソウ",
+        "yomi":  "とけいそう",
+        "meanings":  [
+                         "聖なる愛",
+                         "信仰"
+                     ],
+        "meaningsYomi":  [
+                             "せいなるあい",
+                             "しんこう"
+                         ],
+        "seasons":  [
+                        "夏",
+                        "秋"
+                    ],
+        "regions":  [
+                        "中南アメリカ"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  7,
+                              "day":  11,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  152,
+        "name":  "ゼフィランサス",
+        "yomi":  "ぜふぃらんさす",
+        "meanings":  [
+                         "便りがある",
+                         "期待"
+                     ],
+        "meaningsYomi":  [
+                             "たよりがある",
+                             "きたい"
+                         ],
+        "seasons":  [
+                        "夏",
+                        "秋"
+                    ],
+        "regions":  [
+                        "中南アメリカ"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  7,
+                              "day":  12,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  153,
+        "name":  "シラン",
+        "yomi":  "しらん",
+        "meanings":  [
+                         "あなたを忘れない",
+                         "互いに忘れないように"
+                     ],
+        "meaningsYomi":  [
+                             "あなたをわすれない",
+                             "たがいにわすれないように"
+                         ],
+        "seasons":  [
+                        "春"
+                    ],
+        "regions":  [
+                        "日本",
+                        "中国"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  4,
+                              "day":  13,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  154,
+        "name":  "ニオイバンマツリ",
+        "yomi":  "においばんまつり",
+        "meanings":  [
+                         "夢の名残",
+                         "浮気な人"
+                     ],
+        "meaningsYomi":  [
+                             "ゆめのなごり",
+                             "うわきなひと"
+                         ],
+        "seasons":  [
+                        "春",
+                        "夏"
+                    ],
+        "regions":  [
+                        "南アメリカ"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  4,
+                              "day":  14,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  155,
+        "name":  "ユーフォルビア",
+        "yomi":  "ゆーふぉるびあ",
+        "meanings":  [
+                         "控えめ",
+                         "君にまた会いたい"
+                     ],
+        "meaningsYomi":  [
+                             "ひかえめ",
+                             "きみにまたあいたい"
+                         ],
+        "seasons":  [
+                        "春",
+                        "夏"
+                    ],
+        "regions":  [
+                        "アフリカ",
+                        "マダガスカル"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  4,
+                              "day":  15,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  156,
+        "name":  "アスクレピアス",
+        "yomi":  "あすくれぴあす",
+        "meanings":  [
+                         "心変わり",
+                         "健康"
+                     ],
+        "meaningsYomi":  [
+                             "こころがわり",
+                             "けんこう"
+                         ],
+        "seasons":  [
+                        "夏"
+                    ],
+        "regions":  [
+                        "北アメリカ",
+                        "南アメリカ"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  7,
+                              "day":  16,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  157,
+        "name":  "フロックス",
+        "yomi":  "ふろっくす",
+        "meanings":  [
+                         "温和",
+                         "一致"
+                     ],
+        "meaningsYomi":  [
+                             "おんわ",
+                             "いっち"
+                         ],
+        "seasons":  [
+                        "春",
+                        "夏"
+                    ],
+        "regions":  [
+                        "北アメリカ"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  4,
+                              "day":  17,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  158,
+        "name":  "ルリタマアザミ",
+        "yomi":  "るりたまあざみ",
+        "meanings":  [
+                         "鋭敏",
+                         "豊かな感情"
+                     ],
+        "meaningsYomi":  [
+                             "えいびん",
+                             "ゆたかなかんじょう"
+                         ],
+        "seasons":  [
+                        "夏"
+                    ],
+        "regions":  [
+                        "ヨーロッパ",
+                        "西アジア"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  7,
+                              "day":  18,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  159,
+        "name":  "アジュガ",
+        "yomi":  "あじゅが",
+        "meanings":  [
+                         "心休まる家庭",
+                         "強い友情"
+                     ],
+        "meaningsYomi":  [
+                             "こころやすまるかてい",
+                             "つよいゆうじょう"
+                         ],
+        "seasons":  [
+                        "春",
+                        "夏"
+                    ],
+        "regions":  [
+                        "ヨーロッパ",
+                        "西アジア"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  4,
+                              "day":  19,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
+    },
+    {
+        "id":  160,
+        "name":  "ラグラス",
+        "yomi":  "らぐらす",
+        "meanings":  [
+                         "感謝",
+                         "はずむ心"
+                     ],
+        "meaningsYomi":  [
+                             "かんしゃ",
+                             "はずむこころ"
+                         ],
+        "seasons":  [
+                        "春",
+                        "夏"
+                    ],
+        "regions":  [
+                        "地中海沿岸"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+                          {
+                              "month":  4,
+                              "day":  20,
+                              "sourceUrl":  "https://www.flower-db.com/ja",
+                              "retrievedDate":  "2026-04-14"
+                          }
+                      ]
     }
 ]
