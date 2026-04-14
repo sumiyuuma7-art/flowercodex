@@ -1345,9 +1345,9 @@ function formatTypeAccuracyText() {
   const mcMeaning = typeStats.mc_meaning || { answers: 0, correct: 0 };
 
   return [
-    `入劁E${formatAccuracy(input.correct, input.answers)}`,
-    `名前4抁E${formatAccuracy(mcName.correct, mcName.answers)}`,
-    `花言葁E抁E${formatAccuracy(mcMeaning.correct, mcMeaning.answers)}`
+    `入力${formatAccuracy(input.correct, input.answers)}`,
+    `名前4択${formatAccuracy(mcName.correct, mcName.answers)}`,
+    `花言葉4択${formatAccuracy(mcMeaning.correct, mcMeaning.answers)}`
   ].join(" / ");
 }
 
