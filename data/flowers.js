@@ -2184,5 +2184,482 @@ window.FLOWERS = [
         "birthdays":  [
 
                       ]
+    },
+    {
+        "id":  81,
+        "name":  "パンジー",
+        "yomi":  "ぱんじー",
+        "meanings":  [
+                         "もの思い",
+                         "私を思って"
+                     ],
+        "meaningsYomi":  [
+                             "ものおもい",
+                             "わたしをおもって"
+                         ],
+        "seasons":  [
+                        "冬",
+                        "春"
+                    ],
+        "regions":  [
+                        "ヨーロッパ"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+
+                      ]
+    },
+    {
+        "id":  82,
+        "name":  "ビオラ",
+        "yomi":  "びおら",
+        "meanings":  [
+                         "誠実",
+                         "信頼"
+                     ],
+        "meaningsYomi":  [
+                             "せいじつ",
+                             "しんらい"
+                         ],
+        "seasons":  [
+                        "冬",
+                        "春"
+                    ],
+        "regions":  [
+                        "ヨーロッパ"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+
+                      ]
+    },
+    {
+        "id":  83,
+        "name":  "ゼラニウム",
+        "yomi":  "ぜらにうむ",
+        "meanings":  [
+                         "尊敬",
+                         "信頼"
+                     ],
+        "meaningsYomi":  [
+                             "そんけい",
+                             "しんらい"
+                         ],
+        "seasons":  [
+                        "春",
+                        "夏"
+                    ],
+        "regions":  [
+                        "南アフリカ"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+
+                      ]
+    },
+    {
+        "id":  84,
+        "name":  "カラー",
+        "yomi":  "からー",
+        "meanings":  [
+                         "華麗なる美",
+                         "乙女のしとやかさ"
+                     ],
+        "meaningsYomi":  [
+                             "かれいなるび",
+                             "おとめのしとやかさ"
+                         ],
+        "seasons":  [
+                        "春",
+                        "夏"
+                    ],
+        "regions":  [
+                        "南アフリカ"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+
+                      ]
+    },
+    {
+        "id":  85,
+        "name":  "アイリス",
+        "yomi":  "あいりす",
+        "meanings":  [
+                         "希望",
+                         "吉報"
+                     ],
+        "meaningsYomi":  [
+                             "きぼう",
+                             "きっぽう"
+                         ],
+        "seasons":  [
+                        "春"
+                    ],
+        "regions":  [
+                        "ヨーロッパ",
+                        "西アジア"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+
+                      ]
+    },
+    {
+        "id":  86,
+        "name":  "ジャスミン",
+        "yomi":  "じゃすみん",
+        "meanings":  [
+                         "優美",
+                         "愛らしさ"
+                     ],
+        "meaningsYomi":  [
+                             "ゆうび",
+                             "あいらしさ"
+                         ],
+        "seasons":  [
+                        "夏"
+                    ],
+        "regions":  [
+                        "熱帯アジア"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+
+                      ]
+    },
+    {
+        "id":  87,
+        "name":  "クチナシ",
+        "yomi":  "くちなし",
+        "meanings":  [
+                         "とても幸せ",
+                         "喜びを運ぶ"
+                     ],
+        "meaningsYomi":  [
+                             "とてもしあわせ",
+                             "よろこびをはこぶ"
+                         ],
+        "seasons":  [
+                        "夏"
+                    ],
+        "regions":  [
+                        "日本",
+                        "中国",
+                        "台湾"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+
+                      ]
+    },
+    {
+        "id":  88,
+        "name":  "ライラック",
+        "yomi":  "らいらっく",
+        "meanings":  [
+                         "思い出",
+                         "友情"
+                     ],
+        "meaningsYomi":  [
+                             "おもいで",
+                             "ゆうじょう"
+                         ],
+        "seasons":  [
+                        "春"
+                    ],
+        "regions":  [
+                        "ヨーロッパ"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+
+                      ]
+    },
+    {
+        "id":  89,
+        "name":  "スターチス",
+        "yomi":  "すたーちす",
+        "meanings":  [
+                         "変わらぬ心",
+                         "途絶えぬ記憶"
+                     ],
+        "meaningsYomi":  [
+                             "かわらぬこころ",
+                             "とだえぬきおく"
+                         ],
+        "seasons":  [
+                        "夏"
+                    ],
+        "regions":  [
+                        "地中海沿岸"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+
+                      ]
+    },
+    {
+        "id":  90,
+        "name":  "アガパンサス",
+        "yomi":  "あがぱんさす",
+        "meanings":  [
+                         "恋の訪れ",
+                         "知的な装い"
+                     ],
+        "meaningsYomi":  [
+                             "こいのおとずれ",
+                             "ちてきなよそおい"
+                         ],
+        "seasons":  [
+                        "夏"
+                    ],
+        "regions":  [
+                        "南アフリカ"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+
+                      ]
+    },
+    {
+        "id":  91,
+        "name":  "ロベリア",
+        "yomi":  "ろべりあ",
+        "meanings":  [
+                         "謙遜",
+                         "悪意"
+                     ],
+        "meaningsYomi":  [
+                             "けんそん",
+                             "あくい"
+                         ],
+        "seasons":  [
+                        "春",
+                        "夏"
+                    ],
+        "regions":  [
+                        "南アフリカ"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+
+                      ]
+    },
+    {
+        "id":  92,
+        "name":  "ネリネ",
+        "yomi":  "ねりね",
+        "meanings":  [
+                         "また会う日を楽しみに",
+                         "華やか"
+                     ],
+        "meaningsYomi":  [
+                             "またあうひをたのしみに",
+                             "はなやか"
+                         ],
+        "seasons":  [
+                        "秋"
+                    ],
+        "regions":  [
+                        "南アフリカ"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+
+                      ]
+    },
+    {
+        "id":  93,
+        "name":  "サフラン",
+        "yomi":  "さふらん",
+        "meanings":  [
+                         "歓喜",
+                         "陽気"
+                     ],
+        "meaningsYomi":  [
+                             "かんき",
+                             "ようき"
+                         ],
+        "seasons":  [
+                        "秋"
+                    ],
+        "regions":  [
+                        "西アジア"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+
+                      ]
+    },
+    {
+        "id":  94,
+        "name":  "アマリリス",
+        "yomi":  "あまりりす",
+        "meanings":  [
+                         "誇り",
+                         "輝く美しさ"
+                     ],
+        "meaningsYomi":  [
+                             "ほこり",
+                             "かがやくうつくしさ"
+                         ],
+        "seasons":  [
+                        "冬",
+                        "春"
+                    ],
+        "regions":  [
+                        "南アメリカ"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+
+                      ]
+    },
+    {
+        "id":  95,
+        "name":  "グロリオサ",
+        "yomi":  "ぐろりおさ",
+        "meanings":  [
+                         "栄光",
+                         "勇敢"
+                     ],
+        "meaningsYomi":  [
+                             "えいこう",
+                             "ゆうかん"
+                         ],
+        "seasons":  [
+                        "夏"
+                    ],
+        "regions":  [
+                        "熱帯アジア",
+                        "アフリカ"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+
+                      ]
+    },
+    {
+        "id":  96,
+        "name":  "カモミール",
+        "yomi":  "かもみーる",
+        "meanings":  [
+                         "逆境に耐える",
+                         "親交"
+                     ],
+        "meaningsYomi":  [
+                             "ぎゃっきょうにたえる",
+                             "しんこう"
+                         ],
+        "seasons":  [
+                        "春",
+                        "夏"
+                    ],
+        "regions":  [
+                        "ヨーロッパ",
+                        "西アジア"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+
+                      ]
+    },
+    {
+        "id":  97,
+        "name":  "ツユクサ",
+        "yomi":  "つゆくさ",
+        "meanings":  [
+                         "尊敬",
+                         "小夜曲"
+                     ],
+        "meaningsYomi":  [
+                             "そんけい",
+                             "さよきょく"
+                         ],
+        "seasons":  [
+                        "夏"
+                    ],
+        "regions":  [
+                        "日本",
+                        "東アジア"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+
+                      ]
+    },
+    {
+        "id":  98,
+        "name":  "ホオズキ",
+        "yomi":  "ほおずき",
+        "meanings":  [
+                         "自然美",
+                         "心の平安"
+                     ],
+        "meaningsYomi":  [
+                             "しぜんび",
+                             "こころのへいあん"
+                         ],
+        "seasons":  [
+                        "夏",
+                        "秋"
+                    ],
+        "regions":  [
+                        "日本",
+                        "東アジア"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+
+                      ]
+    },
+    {
+        "id":  99,
+        "name":  "オダマキ",
+        "yomi":  "おだまき",
+        "meanings":  [
+                         "勝利への決意",
+                         "愚か"
+                     ],
+        "meaningsYomi":  [
+                             "しょうりへのけつい",
+                             "おろか"
+                         ],
+        "seasons":  [
+                        "春"
+                    ],
+        "regions":  [
+                        "北半球温帯"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+
+                      ]
+    },
+    {
+        "id":  100,
+        "name":  "デルフィニウム",
+        "yomi":  "でるふぃにうむ",
+        "meanings":  [
+                         "高貴",
+                         "あなたは幸福をふりまく"
+                     ],
+        "meaningsYomi":  [
+                             "こうき",
+                             "あなたはこうふくをふりまく"
+                         ],
+        "seasons":  [
+                        "春",
+                        "夏"
+                    ],
+        "regions":  [
+                        "ヨーロッパ",
+                        "シベリア"
+                    ],
+        "image":  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format\u0026fit=crop\u0026w=900\u0026q=80",
+        "birthdays":  [
+
+                      ]
     }
 ];
